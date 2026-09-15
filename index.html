@@ -227,6 +227,9 @@ footer .sep { margin: 0 8px; opacity: .5; }
 .collapsible > summary > h2 { display: flex; align-items: baseline; gap: 10px; transition: color .15s ease; }
 .collapsible > summary:hover > h2 { color: var(--accent); }
 .collapsible > summary:hover > h2 .num { color: var(--accent-2); }
+.summary-line { color: var(--ink-3); font-size: 13px; margin-top: 6px; padding-left: 2px; font-style: italic; transition: color .15s ease; }
+.collapsible > summary:hover .summary-line { color: var(--accent); }
+.collapsible[open] .summary-line { display: none; }
 .toggle-hint { font-family: var(--sans); font-size: 12px; font-weight: 400; color: var(--ink-3); font-style: normal; letter-spacing: 1px; margin-left: auto; }
 .hint-open { display: none; }
 .collapsible[open] .hint-closed { display: none; }
@@ -307,24 +310,36 @@ footer .sep { margin: 0 8px; opacity: .5; }
 
 <!-- ========== 已确认预订 & 官网 ========== -->
 <section>
-  <h2><span class="num">iv.</span>场馆 · 交通官方订票入口</h2>
-  <p style="margin-bottom: 12px;">按时间顺序排列，⏰ 标注了建议下单时机。</p>
-  <div class="book-grid" id="bookGrid"></div>
+  <details class="collapsible">
+    <summary>
+      <h2><span class="num">iv.</span>场馆 · 交通官方订票入口 <span class="toggle-hint"><span class="hint-closed">点击展开 ▾</span><span class="hint-open">点击收起 ▴</span></span></h2>
+      <div class="summary-line">16 个官方链接 · ⏰ 建议下单时机 · 按时间顺序排列</div>
+    </summary>
+    <div class="book-grid" id="bookGrid"></div>
+  </details>
 </section>
 
 <!-- ========== 待办清单 ========== -->
 <section>
-  <h2><span class="num">v.</span>待办清单</h2>
-  <div class="card">
-    <p style="font-size:12px; color:var(--ink-3); margin-bottom:8px;">按图里"待办清单不做勾选"的原则，这里是纯列表。<b>办完一项告诉我，我改文件</b>，避免同行人看到的状态不一样。</p>
-    <ul class="todo-list" id="todoList"></ul>
-  </div>
+  <details class="collapsible">
+    <summary>
+      <h2><span class="num">v.</span>待办清单 <span class="toggle-hint"><span class="hint-closed">点击展开 ▾</span><span class="hint-open">点击收起 ▴</span></span></h2>
+      <div class="summary-line">出发前 14 项 checklist · 办完告诉我，我改文件</div>
+    </summary>
+    <div class="card">
+      <p style="font-size:12px; color:var(--ink-3); margin-bottom:8px;">按"待办清单不做勾选"的原则，这里是纯列表。<b>办完一项告诉我，我改文件</b>，避免同行人看到的状态不一样。</p>
+      <ul class="todo-list" id="todoList"></ul>
+    </div>
+  </details>
 </section>
 
 <!-- ========== 行李打包清单 ========== -->
 <section>
   <details class="collapsible">
-    <summary><h2><span class="num">vi.</span>行李打包清单 <span class="toggle-hint"><span class="hint-closed">点击展开 ▾</span><span class="hint-open">点击收起 ▴</span></span></h2></summary>
+    <summary>
+      <h2><span class="num">vi.</span>行李打包清单 <span class="toggle-hint"><span class="hint-closed">点击展开 ▾</span><span class="hint-open">点击收起 ▴</span></span></h2>
+      <div class="summary-line">56 项分 8 类 · 手机可随时加自定义（本机保存）</div>
+    </summary>
     <div class="card">
       <p style="font-size:12px; color:var(--ink-3); margin-bottom:14px;">
         上半部分是<b>官方基础清单</b>（所有人看到一样）；下半部分"我的添加"是<b>只保存在你这台手机 / 浏览器里</b>的，勾选状态和自定义项目不会同步给同行人。
@@ -355,7 +370,10 @@ footer .sep { margin: 0 8px; opacity: .5; }
 <!-- ========== 实用贴士 ========== -->
 <section>
   <details class="collapsible">
-    <summary><h2><span class="num">vii.</span>实用贴士 <span class="toggle-hint"><span class="hint-closed">点击展开 ▾</span><span class="hint-open">点击收起 ▴</span></span></h2></summary>
+    <summary>
+      <h2><span class="num">vii.</span>实用贴士 <span class="toggle-hint"><span class="hint-closed">点击展开 ▾</span><span class="hint-open">点击收起 ▴</span></span></h2>
+      <div class="summary-line">5 条罗马 / 佛罗伦萨 / 梵蒂冈精华干货</div>
+    </summary>
     <div class="tips" id="tipsGrid"></div>
   </details>
 </section>
@@ -794,17 +812,9 @@ const packingList = [
 const tips = [
   { title: '教堂着装要求', body: '圣彼得 / 米兰大教堂 / 圣母百花均要求<b>遮肩遮膝</b>，男士不能穿短裤或无袖。夏天薄外套 + 长裙 / 长裤是稳妥搭配，安检可能会拦下背心和短裙。' },
   { title: '罗马 · 圣彼得清晨', body: '早上 7:00 最早去圣彼得，几乎不用排。殿内空旷，能围观信教群众唱经、下跪，仪式感拉满。' },
-  { title: '罗马 · 万神殿买票', body: '不要走右边自助买票，慢。走最左边 <b>cash only</b> 通道买票，快。' },
-  { title: '佛罗伦萨 · 85 欧三日通票', body: '如果计划连打多个馆，考虑佛罗伦萨 85 € 三日通票，含乌菲兹+学院+皮蒂宫+波波利花园。' },
   { title: '梵蒂冈 · 讲解团票', body: '买个团队讲解票可以从博物馆<b>直接不排队去圣彼得</b>，半天逛完。或只看教堂内部就直接去博物馆排队。' },
   { title: 'B 站预习', body: '乌菲兹推荐两个视频：① 顾爷 AAAAA 博物馆系列（20 min，出发前看）；② P3 一个多小时精讲（进馆边看边找）。' },
-  { title: '瑞士徒步 · 三大经典路线', body: 'D7 <b>First → Bachalpsee</b>（55 min 到镜面高山湖，看三主峰倒影）+ <b>Männlichen → Kleine Scheidegg</b>（1.5h 平缓山脊）；D8 备选 <b>Schynige Platte</b>（百年古董齿轨 + 高山植物园）。全部 STP 免费。' },
-  { title: '瑞士通票 STP · 4 日全免', body: '4 日连续券（2 等座）约 <b>CHF 244/人</b>。覆盖：全部火车、邮政巴士、湖船、市内公交、First/Männlichen/Schynige Platte 缆车齿轨。<em>激活当天开始算 4 天</em>，D6 到达当天激活，D9 出瑞士 12:00 前也算在内。' },
-  { title: '瑞士 → 巴黎买票', body: '直接在 SBB 官网买到 Paris Gare de Lyon 的车票。填 Reductions 页面时点你的名字 → Discount cards → 添加 "Swiss Travel Pass 2nd Class"。' },
-  { title: '巴黎地铁 · Navigo', body: '手机下 <b>Bonjour RATP</b> App，直接充值 Navigo 电子票，NFC 手机就是地铁票。' },
-  { title: '巴黎退税', body: '老佛爷百货内自助机打退税单 → CDG 机场 PABLO 机器扫码 → 托运。<b>务必留出 30 min 排 PABLO</b>。' },
-  { title: '公开网址原则', body: '本页永远不写：确认号、护照号、酒店房间号、Wi-Fi 密码。这些请走微信小群单独发。' },
-  { title: '跨国夜火车不推荐', body: '意瑞法这条线白天景色比睡觉更值，全程日间高铁 + 酒店过夜，不折腾。' },
+  { title: '佛罗伦萨 · 85 欧三日通票', body: '如果计划连打多个馆，考虑佛罗伦萨 85 € 三日通票，含乌菲兹+学院+皮蒂宫+波波利花园。' },
 ];
 
 /* ============================================================
