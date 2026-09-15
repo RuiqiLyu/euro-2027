@@ -432,7 +432,7 @@ const days = [
       { time: '01:10 – 07:10', type: 'transit', title: '国内 ✈ 罗马 FCO', desc: '夜航直飞，机上尽量休息。罗马此时是<em>前一日夜里 19:10 起飞的第二天早晨</em>。' },
       { time: '08:30 – 13:00', type: 'rest', title: '入城 → 酒店回血', desc: '搭 Leonardo Express（约 32 min，€14）到 Termini。寄存行李，进房补觉，享用罗马意面午餐。' },
       { time: '14:30 – 15:30', type: 'attraction', title: '斗兽场 + 君士坦丁凯旋门（外景打卡）', place: 'Colosseo, Roma', desc: '地铁 B 线 Colosseo 出站即达。' },
-      { time: '16:00 – 17:30', type: 'attraction', title: '万神殿（入内）', place: 'Pantheon, Roma', desc: '<em>Tip：走最左边 cash only 通道买票最快</em>，右边自助排队很慢。' },
+      { time: '16:00 – 17:30', type: 'attraction', title: '万神殿（入内）', place: 'Pantheon, Roma', tag: '建议预约', desc: '2023 起收 5 € 门票，<em>官网提前预约可免排队</em>。若现场买票，走最左边 cash only 通道最快。' },
       { time: '18:00 – 20:00', type: 'attraction', title: '特雷维喷泉夜游 · 晚餐', place: 'Fontana di Trevi, Roma', desc: '夜灯亮起后再去，人少又出片。' },
     ],
   },
@@ -493,9 +493,9 @@ const days = [
     stay: '因特拉肯 / 格林德瓦', transport: '跨国 EC 快车 → 施皮茨/布里格换 IC → Interlaken Ost → Grindelwald',
     routeDay: ['Milano Centrale', 'Spiez', 'Interlaken Ost', 'Grindelwald'],
     events: [
-      { time: '09:30 – 12:00', type: 'attraction', title: '米兰时尚留白', desc: '慢逛时尚四边形购物区，或到<em>欧洲最美星巴克臻选烘焙坊</em>喝杯 espresso。' },
-      { time: '12:30 – 17:30', type: 'transit', title: '米兰 → 因特拉肯东站 → 格林德瓦', tag: '需订票', desc: '跨国 EC 直达列车，窗外从意式古建切换到瑞士雪山湖泊童话木屋。<em>进入瑞士后开始使用 Swiss Travel Pass</em>。' },
-      { time: '18:00 – 20:00', type: 'rest', title: '入住 · 阿尔卑斯山谷傍晚', desc: '格林德瓦小镇木屋民宿，看月色照雪山。' },
+      { time: '08:30 – 10:00', type: 'rest', title: '米兰早晨咖啡 · 打包早餐', desc: '在中央车站附近快速吃早餐。<em>不要拖，5.5-6h 车程要留缓冲</em>。' },
+      { time: '10:30 – 16:30', type: 'transit', title: '米兰 → 因特拉肯东站 → 格林德瓦', tag: '需订票', desc: '跨国 EC 直达列车（Milano C. → Basel/Spiez → Interlaken Ost → Grindelwald），实际含换乘约 5.5-6h。窗外从意式古建切换到瑞士雪山湖泊童话木屋。<em>进入瑞士后开始使用 Swiss Travel Pass</em>。' },
+      { time: '17:00 – 20:00', type: 'rest', title: '入住 · 阿尔卑斯山谷傍晚', desc: '格林德瓦小镇木屋民宿，看月色照雪山。' },
     ],
   },
   {
@@ -517,9 +517,9 @@ const days = [
     stay: '同上', transport: '瑞铁 SBB + 湖泊游船（持 STP 全免或折扣）',
     routeDay: ['Interlaken', 'Brienz', 'Grindelwald'],
     events: [
-      { time: '09:30 – 12:00', type: 'attraction', title: '布里恩茨湖游船', place: 'Brienzersee, Switzerland', desc: '被称为<em>"蒂芙尼蓝"</em>的湖，复古游船慢慢荡。' },
-      { time: '12:00 – 15:00', type: 'attraction', title: '格林德瓦 · 龙疆等小镇漫步', desc: '若想更刺激，可去 First 山挑战山顶飞索。' },
-      { time: '全天备用', type: 'booking', title: '⚠️ 少女峰黄金后备日', tag: '天气备用', desc: '若昨日大雾，把 D7 少女峰整套挪到今天。' },
+      { time: '06:30 – 07:30', type: 'booking', title: '⚠️ 决策日 · 看 Webcam 确定今天走哪套方案', tag: '关键决策', desc: '打开 <a href="https://www.jungfrau.ch/en-gb/live/webcams/" target="_blank">jungfrau.ch/live/webcams</a>：<em>若 5.18 已上过山</em> → 走「方案 A · 湖泊小镇」；<em>若 5.18 因大雾未上山且今天晴朗</em> → 立刻走「方案 B · 补登少女峰」。' },
+      { time: '方案 A · 已登过山', type: 'attraction', title: '布里恩茨湖游船 + 龙疆小镇', place: 'Brienzersee, Switzerland', desc: '09:30-12:00 蒂芙尼蓝湖上复古游船 → 12:00-15:00 格林德瓦 / 龙疆 (Iseltwald) 小镇漫步。想更刺激可去 First 山飞索。' },
+      { time: '方案 B · 补登少女峰', type: 'attraction', title: '格林德瓦 → Eiger Express → Jungfraujoch', desc: '08:30 立刻出发按 D7 同套路线上山（Grindelwald Terminal → Eigergletscher → 齿轨 → 山顶）。湖泊游船顺延到 5.20 早上，但会挤掉 D9 巴黎入城的部分时段。' },
     ],
   },
   {
@@ -542,7 +542,7 @@ const days = [
     events: [
       { time: '09:30 – 11:00', type: 'attraction', title: '登顶凯旋门 · 俯瞰十二放射大道', place: 'Arc de Triomphe, Paris', desc: '趁体力好上午登。' },
       { time: '11:00 – 12:30', type: 'attraction', title: '散步香榭丽舍大街', place: 'Champs-Élysées, Paris', desc: '' },
-      { time: '13:00 – 15:00', type: 'attraction', title: '杜乐丽花园 · Angelina 热巧克力 · 蒙布朗', place: 'Jardin des Tuileries, Paris', desc: '<em>Angelina 招牌热巧</em>浓到能立勺，蒙布朗蛋糕必点。' },
+      { time: '13:00 – 15:00', type: 'rest', title: '杜乐丽花园 · 法式午餐', place: 'Jardin des Tuileries, Paris', desc: '在花园里的露天咖啡座吃法式午餐、看鸽子和喷泉，为下午橘园 + 晚上卢浮宫夜场充电。' },
       { time: '15:30 – 18:00', type: 'attraction', title: '橘园美术馆 · 莫奈《睡莲》', place: 'Musée de l\'Orangerie, Paris', tag: '需预约', desc: '两间椭圆展厅，360° 环绕的睡莲。' },
       { time: '18:30 – 21:30', type: 'attraction', title: '卢浮宫夜游 · 直奔三宝', place: 'Musée du Louvre, Paris', tag: '周五夜场', desc: '<em>周五延长至 21:45 开放</em>，18:30 入场，旅行团已撤，人潮减半。蒙娜丽莎 · 胜利女神 · 断臂维纳斯。出门拍发光玻璃金字塔。' },
     ],
@@ -571,7 +571,7 @@ const days = [
 
 const bookings = [
   { name: '罗马斗兽场', when: '提前 1 个月', hint: '整点分时段票秒空', url: 'https://ticketing.colosseo.it/zh/categorie/singoli-1-8-persone/' },
-  { name: '万神殿', when: '打不开就现场排', hint: '走最左 cash 通道最快', url: 'https://portale.museiitaliani.it/b2c/buyTicketless/33f77159-0acd-40c4-8524-701f33aae108' },
+  { name: '万神殿', when: '提前 1 个月官网预约', hint: '2023 起收 5 € 门票，官网预约可免排队；打不开就现场排（走最左 cash 通道最快）', url: 'https://portale.museiitaliani.it/b2c/buyTicketless/33f77159-0acd-40c4-8524-701f33aae108' },
   { name: '梵蒂冈博物馆', when: '签证下就买', hint: '推荐团队讲解票可直通圣彼得', url: 'https://tickets.museivaticani.va/' },
   { name: '圣彼得大教堂', when: '提前 1 个月', hint: '或早上 7 点最早去几乎不排', url: 'https://booking.basilicasanpietro.va/' },
   { name: '乌菲兹美术馆', when: '提前 1 个月', hint: '强烈建议 08:30 首场', url: 'https://www.uffizi.it/en/' },
@@ -594,6 +594,7 @@ const todos = [
   { text: '<b>出发前 2 周</b>：国内平台买 Swiss Travel Pass 4 日连续券', done: false },
   { text: '预约梵蒂冈博物馆（5.13 上午）', done: false },
   { text: '预约罗马斗兽场（5.12 下午入场）', done: false },
+  { text: '预约万神殿（5.12 下午 5 € 门票，免排队）', done: false },
   { text: '预约圣彼得大教堂（5.13 下午）或选择清晨 07:00 现场', done: false },
   { text: '预约米兰大教堂 + 屋顶电梯票（5.16 下午）', done: false },
   { text: '决定是否登圣母百花大教堂圆顶，若登需另约', done: false },
@@ -696,6 +697,7 @@ const packingList = [
 ];
 
 const tips = [
+  { title: '教堂着装要求', body: '圣彼得 / 米兰大教堂 / 圣母百花均要求<b>遮肩遮膝</b>，男士不能穿短裤或无袖。夏天薄外套 + 长裙 / 长裤是稳妥搭配，安检可能会拦下背心和短裙。' },
   { title: '罗马 · 圣彼得清晨', body: '早上 7:00 最早去圣彼得，几乎不用排。殿内空旷，能围观信教群众唱经、下跪，仪式感拉满。' },
   { title: '罗马 · 万神殿买票', body: '不要走右边自助买票，慢。走最左边 <b>cash only</b> 通道买票，快。' },
   { title: '佛罗伦萨 · 85 欧三日通票', body: '如果计划连打多个馆，考虑佛罗伦萨 85 € 三日通票，含乌菲兹+学院+皮蒂宫+波波利花园。' },
