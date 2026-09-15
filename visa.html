@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#b78e3c">
+<title>🛂 意大利申根签证攻略 · 法意瑞 12 日</title>
+<style>
+:root {
+  --bg: #faf6f0; --bg-2: #ffffff; --ink: #1c1a17; --ink-2: #55504a; --ink-3: #8b857e;
+  --line: #e8e0d4; --accent: #b78e3c; --accent-2: #c8583a; --accent-3: #2a6b5c; --accent-4: #395486;
+  --warn: #b8531c;
+  --card-shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px -8px rgba(0,0,0,.08);
+  --radius: 14px;
+  --serif: "Cormorant Garamond", "Noto Serif SC", "Songti SC", "Source Han Serif SC", Georgia, serif;
+  --sans: -apple-system, "SF Pro Text", "PingFang SC", "Microsoft YaHei", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14110e; --bg-2: #1e1a15; --ink: #f2ece2; --ink-2: #c9c1b3; --ink-3: #8a8377;
+    --line: #2d271f; --accent: #d9b25b; --accent-2: #e07253; --accent-3: #4fa792; --accent-4: #6d8bc4;
+    --card-shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px -8px rgba(0,0,0,.6);
+  }
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--bg); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; line-height: 1.7; }
+body { padding: 20px 16px 80px; max-width: 960px; margin: 0 auto; }
+a { color: var(--accent); text-decoration: none; border-bottom: 1px dashed currentColor; }
+a:hover { color: var(--accent-2); }
+h1, h2, h3, h4 { font-family: var(--serif); font-weight: 600; letter-spacing: .01em; color: var(--ink); }
+h1 { font-size: clamp(28px, 6vw, 40px); line-height: 1.15; }
+h2 { font-size: clamp(22px, 4.5vw, 28px); margin-top: 40px; margin-bottom: 12px; display: flex; align-items: baseline; gap: 10px; padding-bottom: 8px; border-bottom: 2px solid var(--accent); }
+h2 .num { font-size: .55em; color: var(--accent); font-family: var(--serif); font-style: italic; font-weight: 400; }
+h3 { font-size: 19px; margin: 22px 0 8px; color: var(--accent); }
+h4 { font-size: 15px; margin: 14px 0 4px; color: var(--ink); }
+p { color: var(--ink-2); margin: 6px 0; }
+strong, b { color: var(--ink); font-weight: 600; }
+small { code: var(--ink-3); font-size: 12px; }
+code { background: var(--line); padding: 1px 6px; border-radius: 3px; font-size: 13px; font-family: 'SF Mono', Consolas, monospace; }
+
+.hero { padding: 20px 0 24px; border-bottom: 1px solid var(--line); margin-bottom: 8px; }
+.hero .kicker { color: var(--accent); font-family: var(--serif); font-style: italic; font-size: 14px; }
+.hero .subtitle { color: var(--ink-2); font-size: 14px; margin-top: 6px; }
+.nav-bar { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+.nav-bar a { background: var(--bg-2); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font-size: 13px; text-decoration: none; color: var(--ink-2); }
+.nav-bar a.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+.nav-bar a:hover { border-color: var(--accent); color: var(--accent); }
+.nav-bar a.active:hover { color: #fff; }
+
+.card { background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 14px; box-shadow: var(--card-shadow); }
+.card.warn { border-left: 3px solid var(--warn); background: linear-gradient(to right, rgba(184,83,28,0.03), var(--bg-2) 40%); }
+.card.tip { border-left: 3px solid var(--accent-3); }
+.card.info { border-left: 3px solid var(--accent-4); }
+.card.hot { border-left: 3px solid var(--accent); background: linear-gradient(to right, rgba(183,142,60,0.06), var(--bg-2) 50%); }
+.card ul, .card ol { margin: 6px 0 6px 22px; color: var(--ink-2); }
+.card li { margin-bottom: 6px; }
+.card li b { color: var(--ink); }
+
+/* 时间轴 */
+.timeline-visa { list-style: none; padding: 0; margin: 12px 0; }
+.timeline-visa li { position: relative; padding: 14px 16px 14px 44px; margin-bottom: 8px; background: var(--bg-2); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--card-shadow); }
+.timeline-visa li::before { content: attr(data-icon); position: absolute; left: 12px; top: 14px; font-size: 20px; }
+.timeline-visa li .date { font-family: var(--serif); font-size: 18px; font-weight: 600; color: var(--accent); }
+.timeline-visa li .what { color: var(--ink); font-size: 14px; margin-top: 2px; }
+.timeline-visa li .why { color: var(--ink-3); font-size: 12px; margin-top: 4px; font-style: italic; }
+
+/* 材料清单 */
+.doc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+@media (max-width: 720px) { .doc-grid { grid-template-columns: 1fr; } }
+.doc-card { background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; box-shadow: var(--card-shadow); border-top: 3px solid var(--accent-4); }
+.doc-card.mom { border-top-color: var(--accent-2); }
+.doc-card h3 { color: var(--ink); margin: 0 0 10px; font-size: 20px; display: flex; align-items: center; gap: 8px; }
+.doc-card ol { padding-left: 22px; color: var(--ink-2); }
+.doc-card li { margin-bottom: 8px; font-size: 14px; }
+.doc-card li b { color: var(--ink); }
+.doc-card li .note { display: block; font-size: 12px; color: var(--ink-3); font-style: italic; margin-top: 2px; }
+
+/* Step 步骤 */
+.step-flow { counter-reset: step; }
+.step-flow > .step { position: relative; padding: 16px 18px 16px 60px; background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); margin-bottom: 12px; box-shadow: var(--card-shadow); }
+.step-flow > .step::before { counter-increment: step; content: counter(step); position: absolute; left: 16px; top: 16px; width: 32px; height: 32px; background: var(--accent); color: #fff; border-radius: 50%; font-family: var(--serif); font-weight: 600; font-size: 16px; display: flex; align-items: center; justify-content: center; }
+.step-flow > .step h4 { margin: 0 0 6px; font-family: var(--serif); font-size: 18px; }
+.step-flow > .step p { font-size: 14px; color: var(--ink-2); margin: 4px 0; }
+.step-flow > .step ul { margin: 6px 0 4px 22px; font-size: 14px; }
+.step-flow > .step ul li { color: var(--ink-2); margin-bottom: 3px; }
+
+table { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 13px; }
+th, td { padding: 8px 10px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; color: var(--ink-2); }
+th { color: var(--ink); font-weight: 600; background: rgba(183,142,60,0.08); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; }
+td b { color: var(--ink); }
+
+.footer-nav { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-3); font-size: 12px; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="kicker">Schengen Visa Guide · Italy Consulate</div>
+  <h1>🛂 意大利申根签证攻略</h1>
+  <div class="subtitle">首入境国是意大利（罗马 FCO 落地）→ 递交意签 · 妈妈退休 + 我在职 分别材料清单</div>
+  <nav class="nav-bar">
+    <a href="./index.html">🗺️ 行程主页</a>
+    <a href="./train.html">🚂 大交通</a>
+    <a href="./metro.html">🚇 市内交通</a>
+    <a href="./visa.html" class="active">🛂 签证申请</a>
+  </nav>
+</header>
+
+<!-- ========== 关键时间线 ========== -->
+<section>
+  <h2><span class="num">i.</span>关键时间线</h2>
+  <p style="color: var(--ink-2); margin-bottom: 12px;">出发日 <b>2027.5.12</b>，按<b>申根 2024 年新政</b>可提前 6 个月递签，但为避免高峰期排队和补料，我推荐时间如下：</p>
+  <ul class="timeline-visa">
+    <li data-icon="🟢">
+      <div class="date">2026.11.12（最早可申请日）</div>
+      <div class="what">申根新政允许出发前 6 个月递签</div>
+      <div class="why">早于此日 VFS 会拒收</div>
+    </li>
+    <li data-icon="📝">
+      <div class="date">2027.2 - 2027.3 初</div>
+      <div class="what">开始准备材料：整理护照、翻译文件、开在职证明、办存款证明</div>
+      <div class="why">在职证明有效期 30 天，别开太早</div>
+    </li>
+    <li data-icon="🎫">
+      <div class="date">2027.2 中旬</div>
+      <div class="what">VFS Global 官网在线预约 · 选 3 月中 ~ 4 月初</div>
+      <div class="why">旺季（4-5 月出行季）预约位紧张，早订</div>
+    </li>
+    <li data-icon="🏢">
+      <div class="date">2027.3 中 ~ 4 初 ⭐推荐递签</div>
+      <div class="what">本人亲赴 VFS 中心：递交材料 + 采集指纹 + 缴费</div>
+      <div class="why">距离出发约 45 天，留足审核 + 补料时间</div>
+    </li>
+    <li data-icon="⏳">
+      <div class="date">2027.3 下 ~ 4 中</div>
+      <div class="what">审核期 10-15 工作日（旺季 20-30 天）</div>
+      <div class="why">可在 VFS 官网查进度</div>
+    </li>
+    <li data-icon="✅">
+      <div class="date">2027.4 中 ~ 5 初</div>
+      <div class="what">签证下发 → 领取护照（快递 or 自取）</div>
+      <div class="why">距离出发 1-4 周，充足</div>
+    </li>
+    <li data-icon="🔴">
+      <div class="date">最晚 2027.4.15</div>
+      <div class="what">务必递签的截止日</div>
+      <div class="why">给出发前留 4 周应对拒签、补料、加急</div>
+    </li>
+  </ul>
+</section>
+
+<!-- ========== 通用材料 ========== -->
+<section>
+  <h2><span class="num">ii.</span>通用材料（2 人都要交）</h2>
+  <div class="card">
+    <p style="margin-bottom: 10px;">以下 12 项<b>每个人都必须提交</b>，装成 A4 文件袋一份一份分开。所有<b>中文材料需附英文或意大利文翻译</b>。</p>
+    <ol style="padding-left: 22px;">
+      <li><b>申根签证申请表</b>（<a href="https://visa.vfsglobal.cn/chn/zh/ita/" target="_blank">VFS 官网</a>下载 · 英文/意大利文填写 · 签字）</li>
+      <li><b>护照原件</b>（有效期到 <b>2027.8.23 之后</b>，即回国后 &gt; 3 个月 · 至少 2 页空白页）</li>
+      <li><b>旧护照</b>（如有，全部提交）</li>
+      <li><b>白底彩色照片 x 2 张</b>（3.5 × 4.5 cm · 近 6 个月内拍 · 与护照照片不同）</li>
+      <li><b>身份证复印件</b>（正反面同一页 A4）</li>
+      <li><b>户口本复印件</b>（全部页 · 突出母女关系页）</li>
+      <li><b>往返机票预订单</b>（PNR 占位单即可，出签后再出票；含中转航段）</li>
+      <li><b>所有酒店预订单</b>（覆盖 5.12 - 5.22 全部 10 晚 · Booking.com 可免费预订可退）</li>
+      <li><b>英文详细行程单</b>（12 天逐日 · 城市 · 交通 · 景点 · 打印） <span style="font-size:12px;color:var(--ink-3);">→ 可用主页导出</span></li>
+      <li><b>境外旅行医疗保险</b>（保额 ≥ <b>€30,000</b> · 覆盖申根全境 · 覆盖全部行程日 · 中文/英文双语保单）</li>
+      <li><b>签证费</b>：约 <b>¥580-680/人</b>（含签证费 €80 + VFS 服务费 ¥180 + 短信通知 ¥25 等）</li>
+      <li><b>VFS 签证服务协议 & 数据保护声明</b>（现场签）</li>
+    </ol>
+    <p style="margin-top: 12px; font-size: 13px; color: var(--ink-3);">✅ <b>2 人各准备一份完整材料</b>。所有翻译件用 A4 打印，中英文对照放一起。</p>
+  </div>
+</section>
+
+<!-- ========== 分身份材料 ========== -->
+<section>
+  <h2><span class="num">iii.</span>分身份材料 · 你 vs 妈妈</h2>
+  <div class="doc-grid">
+    <div class="doc-card">
+      <h3>💼 你（在职人员）</h3>
+      <ol>
+        <li><b>在职证明</b>（英文 · 公司抬头）<span class="note">写明：职位、月薪、入职时间、准假日期 5.11-5.24、确认回国后继续就业 · 签字盖公章 + 联系电话</span></li>
+        <li><b>公司营业执照副本复印件</b><span class="note">加盖公章</span></li>
+        <li><b>近 6 个月工资流水</b><span class="note">银行盖章 · 建议月薪 ≥ ¥8000</span></li>
+        <li><b>个人存款证明</b><span class="note">¥3-5 万活期即可 · 或近 6 月银行对账单显示余额 · 无需冻结</span></li>
+        <li><b>近 6 个月社保 / 个税缴纳证明</b><span class="note">"个人所得税" APP 或税务局打印</span></li>
+        <li><b>信用卡近 6 月账单</b><span class="note">辅助证明消费能力，加分项</span></li>
+        <li><b>房产 / 车产复印件</b><span class="note">非必需，但强化"归国约束"，非常加分</span></li>
+      </ol>
+    </div>
+
+    <div class="doc-card mom">
+      <h3>👵 妈妈（退休人员）</h3>
+      <ol>
+        <li><b>退休证复印件</b><span class="note">首页 + 个人信息页</span></li>
+        <li><b>近 6 个月退休金流水</b><span class="note">银行盖章 · 显示每月养老金入账</span></li>
+        <li><b>个人存款证明</b><span class="note">¥3-5 万活期 · 或近 6 月对账单</span></li>
+        <li><b>亲属关系证明</b><span class="note">户口本能证明母女关系即可；若户口本不同户 → 派出所开亲属关系证明 或 公证书</span></li>
+        <li><b>子女资助信 (Sponsor Letter)</b><span class="note">你写英文说明：承担本次旅行全部费用 · 签字 · 附你的护照复印件</span></li>
+        <li><b>子女经济能力证明</b><span class="note">你的在职证明 + 存款证明复印件（附在妈妈材料里）</span></li>
+        <li><b>子女陪同证明</b><span class="note">附你和妈妈的机票行程单，证明同行</span></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="card hot" style="margin-top: 16px;">
+    <h4>💡 亲子同游关键：一定要绑成"经济捆绑"</h4>
+    <p style="font-size:14px; margin-top: 6px;">妈妈作为退休人员，签证官最担心的是<b>"归国意愿低 + 无独立经济能力"</b>。用你的<b>资助信 + 你的在职/存款 + 亲子关系证明</b>三件套绑定，出签率 &gt; 95%。</p>
+    <p style="font-size:14px; margin-top: 6px;">✅ 妈妈的 <b>Sponsor Letter</b> 建议这样写（模板）：</p>
+    <div style="background: var(--bg); padding: 12px 14px; border-radius: 8px; margin-top: 6px; font-size: 13px; color: var(--ink-2); font-family: Georgia, serif; font-style: italic;">
+      To: Consulate General of Italy in China<br><br>
+      I, <b>[你的姓名]</b>, born on [出生日期], holder of Chinese passport [护照号], hereby confirm that I will fully sponsor and accompany my mother <b>[妈妈姓名]</b> (Chinese passport [妈妈护照号]) during our trip to Italy, Switzerland, and France from May 12 to May 22, 2027. I will cover all travel expenses including flights, accommodation, transportation, meals, and any incidentals. Please find attached my employment certificate and bank statements as proof of financial capacity.<br><br>
+      Sincerely,<br>
+      [你的签名]<br>
+      Date: [日期]<br>
+      Phone: [手机号]
+    </div>
+  </div>
+</section>
+
+<!-- ========== 申请流程 5 步 ========== -->
+<section>
+  <h2><span class="num">iv.</span>申请流程 · 5 步</h2>
+  <div class="step-flow">
+    <div class="step">
+      <h4>准备材料 · 2027.2 中开始</h4>
+      <p>按上面清单准备两份材料。<b>翻译件优先自己翻译</b>（省钱且合规），不确定的用 VFS 官方翻译（¥30-60/页）。</p>
+      <ul>
+        <li>在职证明 · 存款证明找银行开具（工作日 20 min）</li>
+        <li>翻译：银行流水、身份证、户口本、退休证</li>
+        <li>装 A4 文件袋：护照 → 表格 → 通用 → 分身份 → 保险 → 机票酒店</li>
+      </ul>
+    </div>
+    <div class="step">
+      <h4>VFS 在线预约 · 2027.2 中</h4>
+      <p>访问 <a href="https://visa.vfsglobal.cn/chn/zh/ita/" target="_blank">visa.vfsglobal.cn/chn/zh/ita</a>：</p>
+      <ul>
+        <li>注册账号 → "预约" → 选择"意大利" → 短期签证</li>
+        <li>选择你的<b>所在城市 VFS 中心</b>（北京 / 上海 / 广州 / 成都 / 昆明 / 沈阳 / 济南 / 武汉 / 深圳 / 杭州 / 重庆 等）</li>
+        <li>选日期时间 → 预约 2 人（可选连续时段）</li>
+        <li><b>打印预约确认单</b>，现场需要</li>
+      </ul>
+    </div>
+    <div class="step">
+      <h4>本人亲赴 VFS 递签 · 2027.3 中 ~ 4 初</h4>
+      <p><b>必须本人亲自到场</b>（首次申请或近 5 年未采集指纹的必录生物特征）。</p>
+      <ul>
+        <li>递交所有材料（材料员 15-30 min 一份份翻查）</li>
+        <li>缴费（可刷卡 / 现金）</li>
+        <li>采集 <b>10 指指纹 + 面部照片</b>（现场设备，2 min）</li>
+        <li>拿到 <b>受理回执</b>（含追踪号）</li>
+        <li>可加钱 <b>¥60/人</b> 选<b>快递回寄</b>护照，省得再跑</li>
+      </ul>
+    </div>
+    <div class="step">
+      <h4>查询审核进度 · 2027.3 下 ~ 4 中</h4>
+      <p>用受理回执上的追踪号在 <a href="https://visa.vfsglobal.cn/chn/zh/ita/" target="_blank">VFS 官网 - Application Status</a> 查询：</p>
+      <ul>
+        <li>"Sent to Consulate" = 送到使馆审核（正常）</li>
+        <li>"Processing at Embassy" = 审核中</li>
+        <li>"Ready for Collection" = 已完成，可以取</li>
+        <li>期间若被<b>电话 / 邮件补料</b>，务必 24 小时内响应</li>
+      </ul>
+    </div>
+    <div class="step">
+      <h4>领取护照 · 2027.4 中 ~ 5 初</h4>
+      <p>取回护照后<b>立刻检查</b>：</p>
+      <ul>
+        <li>签证页有效期是否覆盖 <b>5.12 - 5.22</b> 全部行程</li>
+        <li>入境次数：Single（单次）or Multiple（多次）</li>
+        <li>停留天数：至少 <b>15 天</b>（有的会给 30 或 90 天）</li>
+        <li><b>如果拒签</b>：拿"拒签信"看理由，30 天内可补充材料重新申请</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 常见坑 ========== -->
+<section>
+  <h2><span class="num">v.</span>常见坑 · 避雷指南</h2>
+  <div class="card warn">
+    <h4>🚨 12 个高频拒签原因</h4>
+    <ul>
+      <li><b>护照有效期不够</b>：必须比行程结束日晚至少 3 个月（2027.8.23 之后）</li>
+      <li><b>照片不合格</b>：白底、近半年拍、跟护照照片明显不同、无美颜、无眼镜反光</li>
+      <li><b>酒店订单不覆盖全程</b>：漏一晚也不行；瑞士段 D6-D9 每晚都要有</li>
+      <li><b>行程不合理</b>：签证官很懂欧洲地理，别写 1 天从米兰到罗马再回米兰这种</li>
+      <li><b>保险保额不足</b>：必须 <b>≥ €30,000</b>（约 ¥24 万），有些便宜保险只有 €10,000</li>
+      <li><b>保险日期不覆盖</b>：起始日应是<b>出发当天或前一天</b>，结束日应是<b>回国当天或后一天</b></li>
+      <li><b>在职证明超期</b>：签发日期不能早于递签前 30 天</li>
+      <li><b>银行流水太干净</b>：突然存入一大笔钱会被怀疑"临时充值"，建议提前 3 个月开始正常进出</li>
+      <li><b>存款不足</b>：人均 ¥3 万是安全线，¥5 万+ 更稳</li>
+      <li><b>翻译不规范</b>：中文材料未翻译或翻译错误</li>
+      <li><b>无归国约束</b>：单身 + 无固定工作 + 无房产，比较容易被拒；妈妈的资助信 + 你的经济证明可以覆盖</li>
+      <li><b>DIY 材料残缺</b>：漏交一样都可能被要求补料延期</li>
+    </ul>
+
+    <h4 style="margin-top: 16px;">🚨 妈妈的额外注意点</h4>
+    <ul>
+      <li><b>体检报告</b>：意签 <em>不强制</em>要求，但如果妈妈有慢性病 &gt; 65 岁，建议加一份"健康证明"</li>
+      <li><b>紧急联系人</b>：妈妈的申请表上填你为紧急联系人（英文）</li>
+      <li><b>陪同关系</b>：妈妈的申请表<b>不填单独出行</b>，要写明"与女儿同行"（Traveling with daughter [你的姓名]）</li>
+    </ul>
+  </div>
+
+  <div class="card tip" style="margin-top: 12px;">
+    <h4>💰 加急服务（可选）</h4>
+    <p style="font-size: 14px;">如果距离出发不足 30 天才递签，可以选 VFS "<b>Prime Time</b>" 或 "<b>Fast Track</b>"：</p>
+    <ul>
+      <li>Prime Time：晚上/周末递签，+ ¥350/人</li>
+      <li>Fast Track：优先审核，+ ¥250/人</li>
+      <li>不推荐用加急，正常提前 1.5 个月够了</li>
+    </ul>
+  </div>
+
+  <div class="card info" style="margin-top: 12px;">
+    <h4>🌐 官方入口</h4>
+    <table>
+      <tr><th>用途</th><th>官网</th></tr>
+      <tr><td>VFS 意大利签证中心（中国）</td><td><a href="https://visa.vfsglobal.cn/chn/zh/ita/" target="_blank">visa.vfsglobal.cn/chn/zh/ita</a></td></tr>
+      <tr><td>意大利驻华使馆</td><td><a href="https://ambpechino.esteri.it/zh/" target="_blank">ambpechino.esteri.it</a></td></tr>
+      <tr><td>申根签证申请表（PDF）</td><td>VFS 官网下载页面</td></tr>
+      <tr><td>境外医疗保险推荐</td><td>安联 / 美亚 / 平安（都提供意签合规保单）</td></tr>
+    </table>
+  </div>
+</section>
+
+<div class="footer-nav">
+  <nav class="nav-bar" style="justify-content:center;">
+    <a href="./index.html">🗺️ 行程主页</a>
+    <a href="./train.html">🚂 大交通</a>
+    <a href="./metro.html">🚇 市内交通</a>
+  </nav>
+  <p style="margin-top: 16px; font-family: var(--serif); font-style: italic;">In bocca al lupo · 好运</p>
+  <p style="margin-top: 8px; font-size: 11px;">⚠️ 签证政策会变化，最终以 VFS 及意大利使馆官网为准。本页内容基于 2024 年政策整理。</p>
+</div>
+
+</body>
+</html>
