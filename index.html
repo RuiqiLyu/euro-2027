@@ -317,7 +317,7 @@ footer .sep { margin: 0 8px; opacity: .5; }
   <details class="collapsible">
     <summary>
       <h2><span class="num">iv.</span>待办清单 <span class="toggle-hint"><span class="hint-closed">点击展开 ▾</span><span class="hint-open">点击收起 ▴</span></span></h2>
-      <div class="summary-line">按时间顺序 26 项 · 从 2027.2 中旬早鸟票到出发前 1 天</div>
+      <div class="summary-line">按时间顺序 32 项 · 从现在订机票到出发前 1 天</div>
     </summary>
     <div class="card">
       <p style="font-size:12px; color:var(--ink-3); margin-bottom:8px;">按"待办清单不做勾选"的原则，这里是纯列表。<b>办完一项告诉我，我改文件</b>，避免同行人看到的状态不一样。</p>
@@ -703,6 +703,14 @@ const bookings = [
 ];
 
 const todos = [
+  // ═══ Tier 0 · 现在（2026.10-11）· 机票占位 ═══
+  { text: '<b>📅 现在（2026.10-11）</b>：预订<b>可全退款</b>的国际机票（国航 / 意航 / 法航 · 选 Y 或 M 舱可退，或用航司 48h 免费取消政策），2 人合计 ¥18,000-20,000。<em>用可退款票占位，等签证下来再确认</em>', done: false },
+  { text: '<b>📅 2026.12 - 2027.1 初</b>：<b>签证预备</b>—— 找银行开户咨询在职证明流程 · 检查护照有效期（&gt; 2027.8.23）· 整理户口本 · 确认妈妈退休金流水银行', done: false },
+  { text: '<b>📅 2027.1 上旬</b>：<b>签证材料集齐</b>—— 银行开在职证明 + 存款证明 + 6 个月流水 · 妈妈退休证复印 · 写英文行程单 · 买 €30,000+ 境外医疗保险', done: false },
+  { text: '<b>📅 2027.1 上旬</b>：VFS Global 官网预约 1 月下 ~ 2 月初的递签时段', done: false },
+  { text: '<b>📅 2027.1 中 ~ 2 月初 ⭐</b>：<b>本人亲赴 VFS 递签</b>（2 人一起，含指纹采集）· 见签证专题页详细流程', done: false },
+  { text: '<b>📅 2027.2 - 3 初</b>：拿到签证 → 立刻检查有效期覆盖 5.11 - 5.24 → 确认机票或改期', done: false },
+
   // ═══ Tier 1 · 出发前 2-3 个月（早鸟票黄金期 · STP 和 TGV 一起买） ═══
   { text: '<b>📅 2027.2 中 ~ 3 月初 · 第 1 步</b>：SBB 官网买 <b>Swiss Travel Pass 4 日券 2 等座</b>（CHF 244/人 ≈ €260），指定有效开始日 <b>2027.5.17</b>。付款后拿到 PDF 券 + STP 编号', done: false },
   { text: '<b>📅 2027.2 中 ~ 3 月初 · 第 2 步</b>：紧接着 SBB 官网买 <b>5.20 Interlaken Ost → Paris Gare de Lyon</b> 联程 TGV Lyria。Reductions 页勾 "Swiss Travel Pass 2nd Class" + STP 编号，拿 STP 持卡人早鸟价 €50-65/人（无 STP 早鸟 €65-79）', done: false },
