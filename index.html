@@ -495,9 +495,10 @@ const days = [
     stay: '因特拉肯 / 格林德瓦', transport: '跨国 EC 快车 → 施皮茨/布里格换 IC → Interlaken Ost → Grindelwald',
     routeDay: ['Milano Centrale', 'Spiez', 'Interlaken Ost', 'Grindelwald'],
     events: [
-      { time: '08:30 – 10:00', type: 'rest', title: '米兰早晨咖啡 · 打包早餐', desc: '在中央车站附近快速吃早餐。<em>不要拖，5.5-6h 车程要留缓冲</em>。' },
-      { time: '10:30 – 16:30', type: 'transit', title: '米兰 → 因特拉肯东站 → 格林德瓦', tag: '需订票', desc: '跨国 EC 直达列车（Milano C. → Basel/Spiez → Interlaken Ost → Grindelwald），实际含换乘约 5.5-6h。窗外从意式古建切换到瑞士雪山湖泊童话木屋。<em>进入瑞士后开始使用 Swiss Travel Pass</em>。' },
-      { time: '17:00 – 20:00', type: 'rest', title: '入住 · 阿尔卑斯山谷傍晚', desc: '格林德瓦小镇木屋民宿，看月色照雪山。' },
+      { time: '08:30 – 09:30', type: 'rest', title: '米兰早晨咖啡 · 简单早餐', desc: '在酒店或中央车站附近吃 cornetto + cappuccino，意式起手。' },
+      { time: '09:30 – 10:20', type: 'food', title: 'Milano Centrale 二楼 Mercato Centrale 打包午餐', place: 'Mercato Centrale Milano', desc: '<em>米兰中央车站二楼有 Mercato Centrale 分店</em>（跟佛罗伦萨同品牌），几十家档口。推荐 <em>Panino con Bresaola（风干牛肉三明治）+ Focaccia 白披萨 + Cannoli 甜点 + 一瓶水</em>，够两个人吃 6h 车程。<em>上车前 10 min 上厕所</em>（车上厕所窄）。' },
+      { time: '10:30 – 16:30', type: 'transit', title: '米兰 → 因特拉肯东站 → 格林德瓦', tag: '需订票', desc: '跨国 EC 直达列车（Milano C. → Brig/Spiez → Interlaken Ost → Grindelwald），实际含换乘约 5.5-6h。窗外从意式古建切换到瑞士雪山湖泊童话木屋。<em>进入瑞士后开始使用 Swiss Travel Pass</em>。<em>车上从容吃刚才打包的午餐 + 甜点</em>，中途换车 15-20 min 可以顺便买瑞士巧克力。' },
+      { time: '17:00 – 20:00', type: 'rest', title: '入住 · 晚餐 · 阿尔卑斯山谷傍晚', desc: '格林德瓦小镇木屋民宿。晚餐首推 <em>Rösti（土豆饼配奶酪火腿）</em> 或 <em>Fondue 芝士火锅</em>，看月色照雪山。' },
     ],
   },
   {
@@ -530,8 +531,9 @@ const days = [
     stay: '巴黎市中心 1/2/8/9 区', transport: '瑞铁 → Basel 换 TGV → Paris Gare de Lyon（约 5h30）',
     routeDay: ['Grindelwald', 'Basel SBB', 'Paris Gare de Lyon', 'Trocadéro', 'Tour Eiffel'],
     events: [
-      { time: '09:00 – 14:30', type: 'transit', title: '格林德瓦 → 巴塞尔 → 巴黎里昂', tag: '需订票', desc: '在 SBB 官网买直达票，输入 Interlaken Ost → Paris Gare de Lyon，<em>加 Swiss Travel Pass 2nd Class 优惠</em>。提前 2 个月最便宜。' },
-      { time: '15:30 – 16:30', type: 'rest', title: '入住 · 简餐', desc: '把重行李丢下再出门。' },
+      { time: '07:30 – 08:45', type: 'food', title: '木屋早餐 · Coop 打包午餐', place: 'Coop Grindelwald', desc: '瑞士早餐后 08:00 去 <em>Grindelwald 火车站旁 Coop 超市</em> 打包：瑞士三明治 + Bircher 燕麦杯 + 瑞士牛奶巧克力 + Rivella（瑞士国民饮料）+ Emmi 咖啡。5.5h 车程要吃得住。' },
+      { time: '09:00 – 14:30', type: 'transit', title: '格林德瓦 → 巴塞尔 → 巴黎里昂', tag: '需订票', desc: '路线：Grindelwald → Interlaken Ost (30 min) → Bern → Basel SBB → <em>TGV Lyria 直达 Paris Gare de Lyon</em>（Basel 不用换站，只换轨）。在 SBB 官网买直达票，输入 Interlaken Ost → Paris Gare de Lyon，<em>加 Swiss Travel Pass 2nd Class 优惠</em>。提前 2 个月最便宜。<em>车上从容吃刚才打包的瑞士零食</em>。' },
+      { time: '15:30 – 16:30', type: 'rest', title: '入住 · 放行李', desc: '把重行李丢下再出门。' },
       { time: '16:30 – 18:00', type: 'attraction', title: '夏乐宫 · 埃菲尔铁塔全景', place: 'Trocadéro, Paris', desc: '铁塔正面机位，怎么拍怎么美。' },
       { time: '18:30 – 20:30', type: 'attraction', title: '塞纳河游船 (Bateaux Mouches)', place: 'Bateaux Mouches, Paris', desc: '在日落余晖中静静看圣母院、卢浮宫外景滑过。' },
     ],
