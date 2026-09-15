@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#c8583a">
 <title>法意瑞 12 日 · 2027.5.12 – 5.23</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+<script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <style>
 :root {
   --bg: #faf6f0;
@@ -85,6 +87,14 @@ small { color: var(--ink-3); font-size: 12px; }
 /* Overview SVG map */
 .map-wrap { background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px; margin-bottom: 16px; box-shadow: var(--card-shadow); }
 .map-wrap svg { width: 100%; height: auto; display: block; }
+#tripMap { width: 100%; height: 420px; border-radius: 10px; overflow: hidden; background: #f0eae0; }
+.map-hint { text-align: center; font-size: 11px; color: var(--ink-3); margin-top: 8px; font-style: italic; }
+/* Leaflet 自定义样式 */
+.leaflet-popup-content-wrapper { border-radius: 10px; background: var(--bg-2); color: var(--ink); box-shadow: var(--card-shadow); }
+.leaflet-popup-content { margin: 12px 14px; font-family: var(--sans); font-size: 13px; line-height: 1.5; }
+.leaflet-popup-content b { font-family: var(--serif); font-size: 15px; }
+.leaflet-popup-tip { background: var(--bg-2); }
+.city-marker { display: flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 2px 6px rgba(0,0,0,.3); font-size: 12px; font-weight: 600; color: #fff; font-family: var(--serif); }
 .map-legend { display: flex; flex-wrap: wrap; gap: 8px 14px; margin-top: 10px; font-size: 12px; color: var(--ink-2); padding: 0 4px; }
 .map-legend .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
 
@@ -277,84 +287,14 @@ footer .sep { margin: 0 8px; opacity: .5; }
 <section>
   <h2><span class="num">ii.</span>行程总览地图</h2>
   <div class="map-wrap">
-    <svg viewBox="0 0 600 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="法意瑞路线图">
-      <defs>
-        <filter id="rough" x="-5%" y="-5%" width="110%" height="110%">
-          <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="3"/>
-          <feDisplacementMap in="SourceGraphic" scale="2"/>
-        </filter>
-      </defs>
-      <!-- 手绘感底色 -->
-      <rect width="600" height="480" fill="none"/>
-
-      <!-- 意大利轮廓（示意） -->
-      <path d="M 380 130 Q 400 200 420 260 T 440 380 L 470 420 L 460 440 L 430 430 L 400 420 Q 380 400 370 370 Q 355 320 360 260 Q 360 200 380 130 Z"
-            fill="none" stroke="#c8583a" stroke-width="1" opacity="0.15" stroke-dasharray="3,3"/>
-      <!-- 瑞士轮廓 -->
-      <ellipse cx="315" cy="200" rx="55" ry="30" fill="none" stroke="#2a6b5c" stroke-width="1" opacity="0.15" stroke-dasharray="3,3"/>
-      <!-- 法国轮廓 -->
-      <path d="M 130 130 Q 180 100 220 150 Q 240 200 220 260 Q 180 290 140 270 Q 110 220 130 130 Z"
-            fill="none" stroke="#395486" stroke-width="1" opacity="0.15" stroke-dasharray="3,3"/>
-
-      <!-- 路线 Day1-2 罗马停留 -->
-      <!-- Day 3: 罗马 → 佛罗伦萨 -->
-      <path d="M 460 350 Q 430 300 410 260" stroke="#c8583a" stroke-width="2.5" fill="none" filter="url(#rough)" stroke-linecap="round"/>
-      <!-- Day 5: 佛罗伦萨 → 米兰（含前日比萨来回略去） -->
-      <path d="M 410 260 Q 380 220 360 200" stroke="#b78e3c" stroke-width="2.5" fill="none" filter="url(#rough)" stroke-linecap="round"/>
-      <!-- Day 6: 米兰 → 因特拉肯 -->
-      <path d="M 360 200 Q 340 180 320 195" stroke="#2a6b5c" stroke-width="2.5" fill="none" filter="url(#rough)" stroke-linecap="round"/>
-      <!-- Day 9: 瑞士 → 巴黎 -->
-      <path d="M 315 200 Q 260 175 200 190" stroke="#395486" stroke-width="2.5" fill="none" filter="url(#rough)" stroke-linecap="round"/>
-
-      <!-- 城市点 & 标签 -->
-      <!-- Rome -->
-      <circle cx="460" cy="350" r="8" fill="#c8583a"/>
-      <circle cx="460" cy="350" r="4" fill="#fff"/>
-      <text x="475" y="355" font-family="Georgia, serif" font-size="15" fill="#c8583a" font-weight="600">Roma</text>
-      <text x="475" y="370" font-family="serif" font-size="11" fill="#8b857e">D1-3 · 5.12-14</text>
-
-      <!-- Florence -->
-      <circle cx="410" cy="260" r="7" fill="#b78e3c"/>
-      <circle cx="410" cy="260" r="3.5" fill="#fff"/>
-      <text x="425" y="265" font-family="Georgia, serif" font-size="15" fill="#b78e3c" font-weight="600">Firenze</text>
-      <text x="425" y="280" font-family="serif" font-size="11" fill="#8b857e">D3-5 · 5.14-16</text>
-
-      <!-- Pisa 支线 -->
-      <circle cx="378" cy="268" r="3" fill="#b78e3c" opacity="0.5"/>
-      <text x="345" y="272" font-family="serif" font-size="10" fill="#8b857e" font-style="italic">Pisa</text>
-
-      <!-- Milan -->
-      <circle cx="360" cy="200" r="7" fill="#b78e3c"/>
-      <circle cx="360" cy="200" r="3.5" fill="#fff"/>
-      <text x="375" y="200" font-family="Georgia, serif" font-size="15" fill="#b78e3c" font-weight="600">Milano</text>
-      <text x="375" y="215" font-family="serif" font-size="11" fill="#8b857e">D5-6 · 5.16-17</text>
-
-      <!-- Interlaken / Grindelwald -->
-      <circle cx="315" cy="200" r="8" fill="#2a6b5c"/>
-      <circle cx="315" cy="200" r="4" fill="#fff"/>
-      <text x="220" y="200" font-family="Georgia, serif" font-size="15" fill="#2a6b5c" font-weight="600" text-anchor="end">Grindelwald</text>
-      <text x="220" y="215" font-family="serif" font-size="11" fill="#8b857e" text-anchor="end">D6-9 · 5.17-20</text>
-      <!-- 徒步区标记 -->
-      <text x="315" y="170" font-family="serif" font-size="18" text-anchor="middle">🥾</text>
-      <text x="315" y="185" font-family="serif" font-size="10" fill="#2a6b5c" text-anchor="middle" font-style="italic">First · Männlichen</text>
-
-      <!-- Paris -->
-      <circle cx="180" cy="185" r="9" fill="#395486"/>
-      <circle cx="180" cy="185" r="4.5" fill="#fff"/>
-      <text x="165" y="185" font-family="Georgia, serif" font-size="15" fill="#395486" font-weight="600" text-anchor="end">Paris</text>
-      <text x="165" y="200" font-family="serif" font-size="11" fill="#8b857e" text-anchor="end">D9-11 · 5.20-22</text>
-      <text x="180" y="163" font-family="serif" font-size="14" text-anchor="middle">🗼</text>
-
-      <!-- 标题水印 -->
-      <text x="30" y="45" font-family="Georgia, serif" font-size="18" fill="#8b857e" font-style="italic">A Slow Grand Tour · 2027</text>
-      <text x="30" y="65" font-family="serif" font-size="11" fill="#8b857e">12 天 · 5 城 · 3 国 · 6 段铁路</text>
-    </svg>
+    <div id="tripMap"></div>
     <div class="map-legend">
-      <span><span class="dot" style="background:#c8583a"></span>意大利段（罗马 · 佛罗伦萨）</span>
-      <span><span class="dot" style="background:#b78e3c"></span>米兰过境</span>
-      <span><span class="dot" style="background:#2a6b5c"></span>瑞士段（阿尔卑斯徒步）</span>
-      <span><span class="dot" style="background:#395486"></span>法国段（巴黎）</span>
+      <span><span class="dot" style="background:#c8583a"></span>D3 · 罗马 → 佛罗伦萨</span>
+      <span><span class="dot" style="background:#b78e3c"></span>D5 · 佛罗伦萨 → 米兰</span>
+      <span><span class="dot" style="background:#2a6b5c"></span>D6 · 米兰 → 格林德瓦</span>
+      <span><span class="dot" style="background:#395486"></span>D9 · 瑞士 → 巴黎</span>
     </div>
+    <div class="map-hint">💡 <b>双指缩放 / 拖动</b>查看细节 · 点击城市看行程</div>
   </div>
 </section>
 
@@ -470,6 +410,82 @@ footer .sep { margin: 0 8px; opacity: .5; }
 </footer>
 
 <script>
+/* ============================================================
+   行程总览地图 · Leaflet + OpenStreetMap
+   ============================================================ */
+function initTripMap() {
+  if (typeof L === 'undefined') {
+    // Leaflet 加载失败（网络问题）时的降级
+    const el = document.getElementById('tripMap');
+    if (el) el.innerHTML = '<div style="padding:40px; text-align:center; color:#8b857e;">地图加载中或需联网...</div>';
+    return;
+  }
+  const el = document.getElementById('tripMap');
+  if (!el) return;
+
+  // 检测是否深色模式
+  const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+  const map = L.map('tripMap', {
+    scrollWheelZoom: false,   // 避免滚动网页时误缩放
+    zoomControl: true,
+  });
+
+  // CartoDB 免费简约瓦片，跟网站米色/深色主题搭
+  const tileUrl = isDark
+    ? 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
+    : 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
+  L.tileLayer(tileUrl, {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    maxZoom: 18,
+    subdomains: 'abcd',
+  }).addTo(map);
+
+  // 城市坐标 (纬度, 经度) + 颜色 + 标签
+  const cities = [
+    { name: 'Roma',        latlng: [41.9028, 12.4964], color: '#c8583a', label: 'D1-3', days: '5.12 – 5.14 · 罗马斗兽场 · 梵蒂冈' },
+    { name: 'Firenze',     latlng: [43.7696, 11.2558], color: '#b78e3c', label: 'D3-5', days: '5.14 – 5.16 · 文艺复兴之城' },
+    { name: 'Pisa',        latlng: [43.7228, 10.4017], color: '#b78e3c', label: '·',    days: '5.15 下午 · 比萨斜塔支线', small: true },
+    { name: 'Milano',      latlng: [45.4642,  9.1900], color: '#b78e3c', label: 'D5-6', days: '5.16 – 5.17 · 米兰大教堂 · 时尚之都' },
+    { name: 'Grindelwald', latlng: [46.6244,  8.0413], color: '#2a6b5c', label: 'D6-9', days: '5.17 – 5.20 · 阿尔卑斯徒步 🥾' },
+    { name: 'Paris',       latlng: [48.8566,  2.3522], color: '#395486', label: 'D9-11', days: '5.20 – 5.22 · 塞纳河 · 卢浮宫 🗼' },
+  ];
+
+  cities.forEach(c => {
+    const size = c.small ? 16 : 30;
+    const icon = L.divIcon({
+      className: '',
+      html: `<div class="city-marker" style="background:${c.color}; width:${size}px; height:${size}px; font-size:${c.small ? 0 : 11}px;">${c.small ? '' : c.label}</div>`,
+      iconSize: [size, size],
+      iconAnchor: [size / 2, size / 2],
+    });
+    L.marker(c.latlng, { icon }).addTo(map)
+      .bindPopup(`<b>${c.name}</b><br>${c.days}`);
+  });
+
+  // 路线段（用大圆曲线感的多点 polyline）
+  const routes = [
+    { pts: [[41.9028, 12.4964], [43.7696, 11.2558]], color: '#c8583a', label: 'D3 罗马 → 佛罗伦萨' },
+    { pts: [[43.7696, 11.2558], [45.4642,  9.1900]], color: '#b78e3c', label: 'D5 佛罗伦萨 → 米兰' },
+    { pts: [[45.4642,  9.1900], [46.6244,  8.0413]], color: '#2a6b5c', label: 'D6 米兰 → 格林德瓦' },
+    { pts: [[46.6244,  8.0413], [48.8566,  2.3522]], color: '#395486', label: 'D9 瑞士 → 巴黎' },
+  ];
+  routes.forEach(r => {
+    L.polyline(r.pts, { color: r.color, weight: 4, opacity: 0.75, smoothFactor: 1 })
+      .addTo(map).bindPopup(r.label);
+  });
+
+  // 自动缩放到所有城市可见 + 一点边距
+  const bounds = L.latLngBounds(cities.map(c => c.latlng));
+  map.fitBounds(bounds, { padding: [30, 30] });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => setTimeout(initTripMap, 100));
+} else {
+  setTimeout(initTripMap, 100);
+}
+
 /* ============================================================
    Data
    ============================================================ */
