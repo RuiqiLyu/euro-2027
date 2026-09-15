@@ -117,6 +117,7 @@ small { color: var(--ink-3); font-size: 12px; }
 .event .title { font-size: 16px; font-weight: 500; margin: 2px 0 4px; color: var(--ink); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .event .title .tag { font-size: 10px; padding: 2px 6px; border-radius: 4px; background: var(--warn); color: #fff; letter-spacing: 1px; font-weight: 500; }
 .event .title a.map-link { font-size: 12px; color: var(--accent-4); border-bottom: 1px solid currentColor; }
+.event .title a.map-link.apple { color: var(--ink-2); }
 .event .desc { color: var(--ink-2); font-size: 14px; }
 .event .desc em { color: var(--accent); font-style: normal; font-weight: 500; }
 
@@ -411,6 +412,7 @@ const TRIP_END_ISO   = '2027-05-23T20:00:00+08:00';
 
 // Google Maps helpers
 const gmapSearch = (q) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
+const amapSearch = (q) => `https://maps.apple.com/?q=${encodeURIComponent(q)}`;
 const gmapDir = (waypoints) => {
   // waypoints: [name, name, ...]
   if (waypoints.length < 2) return gmapSearch(waypoints[0]);
@@ -747,7 +749,8 @@ function renderDay(d) {
       <div class="title">
         ${iconFor(e.type)} ${e.title}
         ${e.tag ? `<span class="tag">${e.tag}</span>` : ''}
-        ${e.place ? `<a class="map-link" href="${gmapSearch(e.place)}" target="_blank" rel="noopener">📍 Google 地图</a>` : ''}
+        ${e.place ? `<a class="map-link" href="${gmapSearch(e.place)}" target="_blank" rel="noopener" title="Google 地图（欧洲用）">📍 Google</a>
+        <a class="map-link apple" href="${amapSearch(e.place)}" target="_blank" rel="noopener" title="Apple 地图（国内可用）">🍎 Apple</a>` : ''}
       </div>
       ${e.desc ? `<div class="desc">${e.desc}</div>` : ''}
     </div>
