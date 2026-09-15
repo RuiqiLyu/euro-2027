@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#395486">
+<title>🚂 大交通指南 · 法意瑞 12 日</title>
+<style>
+:root {
+  --bg: #faf6f0; --bg-2: #ffffff; --ink: #1c1a17; --ink-2: #55504a; --ink-3: #8b857e;
+  --line: #e8e0d4; --accent: #395486; --accent-2: #c8583a; --accent-3: #b78e3c; --accent-4: #2a6b5c;
+  --warn: #b8531c;
+  --card-shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px -8px rgba(0,0,0,.08);
+  --radius: 14px;
+  --serif: "Cormorant Garamond", "Noto Serif SC", "Songti SC", "Source Han Serif SC", Georgia, serif;
+  --sans: -apple-system, "SF Pro Text", "PingFang SC", "Microsoft YaHei", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14110e; --bg-2: #1e1a15; --ink: #f2ece2; --ink-2: #c9c1b3; --ink-3: #8a8377;
+    --line: #2d271f; --accent: #6d8bc4; --accent-2: #e07253; --accent-3: #d9b25b; --accent-4: #4fa792;
+    --card-shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px -8px rgba(0,0,0,.6);
+  }
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--bg); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; line-height: 1.7; }
+body { padding: 20px 16px 80px; max-width: 960px; margin: 0 auto; }
+a { color: var(--accent); text-decoration: none; border-bottom: 1px dashed currentColor; }
+a:hover { color: var(--accent-2); }
+h1, h2, h3, h4 { font-family: var(--serif); font-weight: 600; letter-spacing: .01em; color: var(--ink); }
+h1 { font-size: clamp(28px, 6vw, 40px); line-height: 1.15; }
+h2 { font-size: clamp(22px, 4.5vw, 28px); margin-top: 40px; margin-bottom: 12px; display: flex; align-items: baseline; gap: 10px; padding-bottom: 8px; border-bottom: 2px solid var(--accent); }
+h2 .num { font-size: .55em; color: var(--accent); font-family: var(--serif); font-style: italic; font-weight: 400; }
+h3 { font-size: 20px; margin: 22px 0 6px; color: var(--accent); }
+h4 { font-size: 15px; margin: 14px 0 4px; color: var(--ink); }
+p { color: var(--ink-2); margin: 6px 0; }
+strong, b { color: var(--ink); font-weight: 600; }
+small { color: var(--ink-3); font-size: 12px; }
+
+.hero { padding: 20px 0 24px; border-bottom: 1px solid var(--line); margin-bottom: 8px; }
+.hero .kicker { color: var(--accent); font-family: var(--serif); font-style: italic; font-size: 14px; }
+.hero .subtitle { color: var(--ink-2); font-size: 14px; margin-top: 6px; }
+.nav-bar { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+.nav-bar a { background: var(--bg-2); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font-size: 13px; text-decoration: none; color: var(--ink-2); }
+.nav-bar a.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+.nav-bar a:hover { border-color: var(--accent); color: var(--accent); }
+.nav-bar a.active:hover { color: #fff; }
+
+.card { background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 14px; box-shadow: var(--card-shadow); }
+.card.warn { border-left: 3px solid var(--warn); background: linear-gradient(to right, rgba(184,83,28,0.03), var(--bg-2) 40%); }
+.card.tip { border-left: 3px solid var(--accent-4); }
+.card.step { border-left: 3px solid var(--accent); }
+.card p { margin: 4px 0; }
+.card ul, .card ol { margin: 6px 0 6px 22px; color: var(--ink-2); }
+.card li { margin-bottom: 4px; }
+.card li b { color: var(--ink); }
+
+table { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 13px; }
+th, td { padding: 8px 10px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; color: var(--ink-2); }
+th { color: var(--ink); font-weight: 600; background: rgba(57,84,134,0.05); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; }
+td b { color: var(--ink); }
+
+.leg { background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 22px; margin: 18px 0; box-shadow: var(--card-shadow); }
+.leg .leg-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+.leg .leg-num { font-family: var(--serif); font-size: 15px; color: var(--accent); font-style: italic; }
+.leg .leg-title { font-family: var(--serif); font-size: 22px; color: var(--ink); font-weight: 600; margin: 4px 0; }
+.leg .leg-meta { font-size: 12px; color: var(--ink-3); }
+.leg .leg-tag { background: var(--accent); color: #fff; padding: 4px 10px; border-radius: 6px; font-size: 11px; letter-spacing: 1px; }
+.leg .leg-tag.hard { background: var(--warn); }
+
+.step-num { display: inline-block; width: 22px; height: 22px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 12px; text-align: center; line-height: 22px; font-family: var(--serif); font-weight: 600; margin-right: 6px; }
+
+.route-flow { background: var(--bg); border-radius: 10px; padding: 12px 14px; margin: 10px 0; font-size: 13px; color: var(--ink-2); border: 1px dashed var(--line); font-family: 'SF Mono', Consolas, monospace; overflow-x: auto; white-space: nowrap; }
+.route-flow b { color: var(--accent); font-family: var(--sans); }
+
+.badge { display: inline-block; padding: 2px 6px; border-radius: 4px; font-size: 11px; margin-right: 4px; font-weight: 500; }
+.badge.ok { background: rgba(42,107,92,0.15); color: var(--accent-4); }
+.badge.no { background: rgba(184,83,28,0.15); color: var(--warn); }
+.badge.info { background: rgba(57,84,134,0.15); color: var(--accent); }
+
+.footer-nav { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-3); font-size: 12px; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="kicker">Transportation Guide · Trains & Cross-Border</div>
+  <h1>🚂 大交通指南</h1>
+  <div class="subtitle">按你的行程逐段拆解：怎么买票 · 怎么上车 · 怎么换乘 · 怎么守行李</div>
+  <nav class="nav-bar">
+    <a href="./index.html">🗺️ 行程主页</a>
+    <a href="./train.html" class="active">🚂 大交通</a>
+    <a href="./metro.html">🚇 市内交通</a>
+  </nav>
+</header>
+
+<!-- ========== 通用篇 ========== -->
+<section>
+  <h2><span class="num">i.</span>先看这里 · 通用规则</h2>
+
+  <h3>🎫 三国铁路 APP 一览</h3>
+  <table>
+    <tr><th>国家</th><th>官方 APP</th><th>作用</th><th>推荐指数</th></tr>
+    <tr><td>🇮🇹 意大利</td><td><b>Italo</b> + <b>Trenitalia</b></td><td>境内所有高铁/区间车。两家竞争，同段路线比价</td><td>⭐⭐⭐⭐⭐</td></tr>
+    <tr><td>🇨🇭 瑞士</td><td><b>SBB Mobile</b></td><td>境内所有火车 + 部分缆车 + 湖船。<b>Swiss Travel Pass 也在里面激活</b></td><td>⭐⭐⭐⭐⭐</td></tr>
+    <tr><td>🇫🇷 法国</td><td><b>SNCF Connect</b></td><td>TGV 高铁 + 巴黎大区 RER。跨国 Lyria 也可以买</td><td>⭐⭐⭐⭐⭐</td></tr>
+    <tr><td>🚄 跨国</td><td><b>Omio / Rail Europe</b></td><td>一站式对比 + 中文界面。但会加 3-5% 手续费</td><td>⭐⭐⭐（懒人）</td></tr>
+  </table>
+  <p><b>我的建议</b>：直接用各国官方 APP，最便宜、退改灵活。付款用境外 Visa/Master 信用卡。</p>
+
+  <h3>💺 座位 · 车厢 · 行李</h3>
+  <div class="card tip">
+    <h4>🎯 选座三原则</h4>
+    <ul>
+      <li><b>提前 30-60 天买</b>票 → <b>2 等座就够</b>，早鸟能到 <b>19-39 €</b>。晚买 1 周内涨到 70-100 €</li>
+      <li><b>选靠窗（Finestrino / Window / Fenêtre）</b>，风景好又不用起立让邻座过</li>
+      <li><b>避开车厢两端</b>：靠门位置行李被顺走的案例最多</li>
+      <li><b>意大利 Italo：可以选 Ambiente Smart 或 Comfort</b>；Trenitalia 选 Standard 就够</li>
+      <li><b>瑞士 SBB：官网买时勾选"Quiet zone 安静车厢"</b>，避开团队游客</li>
+      <li><b>法国 TGV：Duplex（双层车）选 Upper 上层</b>，视野好 + 安静</li>
+    </ul>
+  </div>
+
+  <div class="card warn">
+    <h4>🎒 行李防盗心法（欧洲高铁扒手的 3 个套路）</h4>
+    <ol>
+      <li><b>永远不要把箱子放在自己看不到的行李架上</b>。<br>欧洲高铁行李架在<b>车厢两端</b>（不是像国内高铁在座椅上方），意味着人在中段坐、箱子在两端 —— 完美的目标</li>
+      <li><b>用小锁或者钢丝绳把箱子固定到行李架栏杆上</b>。10 元一根钢丝密码锁，能挡住 95% 的机会型偷窃</li>
+      <li><b>随身包一定放在<u>大腿上</u>或者<u>脚下夹住</u></b>，别放头顶。手机、护照、钱包分三处放</li>
+      <li><b>贵重行李（相机、笔记本）就近脚下</b>，箱子里只放衣物洗漱</li>
+      <li><b>意大利尤其小心 Termini、佛罗伦萨 SMN、米兰中央车站</b>—— 这三个是全欧洲扒窃案 TOP3</li>
+    </ol>
+  </div>
+
+  <h3>📺 看懂月台屏（Binario / Gleis / Voie）</h3>
+  <div class="card step">
+    <p>大车站通常 <b>发车前 15-20 分钟</b>才在主屏公布月台号（Binario 是意大利语的"月台"）。</p>
+    <ol>
+      <li><b>主屏找车次号</b>（例如 <code>FR 9542</code> 或 <code>EC 51</code>），不是找终点站</li>
+      <li>右侧列 <b>Binario 8</b> 就是 8 号月台</li>
+      <li>跑到 8 号月台后，<b>再看月台头小屏</b>确认这趟车是不是长编组 —— 有时候前几节车厢和后几节车厢<b>去不同目的地</b>！</li>
+      <li>月台上还会显示 <b>"Carrozza 1-4 在这里 / Carrozza 5-8 在那里"</b>，先定位你的车厢号</li>
+    </ol>
+    <p style="margin-top:8px;"><b>意语速查</b>：<code>Binario</code> 月台 · <code>Carrozza</code> 车厢 · <code>Posto</code> 座位 · <code>Ritardo</code> 晚点 · <code>Cancellato</code> 取消</p>
+    <p><b>德语速查</b>：<code>Gleis</code> 月台 · <code>Wagen</code> 车厢 · <code>Sitzplatz</code> 座位 · <code>Verspätung</code> 晚点</p>
+    <p><b>法语速查</b>：<code>Voie</code> 月台 · <code>Voiture</code> 车厢 · <code>Place</code> 座位 · <code>Retard</code> 晚点</p>
+  </div>
+
+  <h3>⏱️ 换乘 buffer 建议</h3>
+  <table>
+    <tr><th>换乘情况</th><th>官方最短</th><th>我的建议</th></tr>
+    <tr><td>同月台无缝换乘（瑞士常见）</td><td>4 min</td><td><b>10 min</b>（万一晚点 3 min 就慌）</td></tr>
+    <tr><td>同车站不同月台</td><td>10 min</td><td><b>20 min</b>（找厕所 + 看屏 + 走）</td></tr>
+    <tr><td>跨车站（如巴黎 Gare de Lyon → Nord）</td><td>30 min</td><td><b>60 min</b>（含地铁）</td></tr>
+    <tr><td>火车 → 飞机（含市区到机场）</td><td>2h</td><td><b>3-4h</b>（欧洲机场安检慢）</td></tr>
+  </table>
+</section>
+
+<!-- ========== D1 机场入城 ========== -->
+<section>
+  <h2><span class="num">ii.</span>D1 · 罗马 FCO 机场入城</h2>
+  <div class="leg">
+    <div class="leg-head">
+      <div>
+        <div class="leg-num">D1 · 5.12 · 07:10 落地</div>
+        <div class="leg-title">Fiumicino Airport → Roma Termini</div>
+        <div class="leg-meta">Leonardo Express 机场快线 · 32 min · €14</div>
+      </div>
+      <span class="leg-tag">简单</span>
+    </div>
+
+    <h4>🎯 三个选项对比</h4>
+    <table>
+      <tr><th>方式</th><th>时长</th><th>价格</th><th>推荐</th></tr>
+      <tr><td><b>Leonardo Express 快线</b>（首选）</td><td>32 min</td><td>€14/人</td><td>✅ 直达 Termini，不停站</td></tr>
+      <tr><td>Regional 慢车 FL1</td><td>50 min</td><td>€8/人</td><td>不到 Termini，要中途换乘</td></tr>
+      <tr><td>Uber / 出租车</td><td>40-70 min</td><td>€50 固定价（出租）/ €60 (Uber)</td><td>拖大箱子累时用</td></tr>
+    </table>
+
+    <h4>📱 买票 3 步</h4>
+    <div class="card step">
+      <ol>
+        <li><b>下机后跟 "Trains / Treni" 标志走</b>，穿过入境大厅约 8 min 到 FCO 火车站</li>
+        <li>火车站有<b>自助售票机（有中文界面）</b>：选 "Leonardo Express" → 输入张数 → 刷信用卡 → 出票</li>
+        <li>票<b>不需要打卡</b>（旧规则要求，现在电子票直接上车）。上车后有列车员查票扫码</li>
+      </ol>
+    </div>
+
+    <h4>💺 上车小技巧</h4>
+    <ul>
+      <li>Leonardo Express 是<b>开放座位</b>（无预订），随便坐</li>
+      <li>2 个人坐 4 人对坐位置，把箱子塞在中间桌下 —— 这是全车最防盗的位置</li>
+      <li>到 Termini 后跟 "Uscita / Exit" 走，别走反了</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ========== D3 罗马→佛罗伦萨 ========== -->
+<section>
+  <h2><span class="num">iii.</span>D3 · 罗马 → 佛罗伦萨</h2>
+  <div class="leg">
+    <div class="leg-head">
+      <div>
+        <div class="leg-num">D3 · 5.14 · 08:30 - 11:00</div>
+        <div class="leg-title">Roma Termini → Firenze SMN</div>
+        <div class="leg-meta">Frecciarossa / Italo 高铁 · 1h 30 min · €19-79</div>
+      </div>
+      <span class="leg-tag">简单</span>
+    </div>
+
+    <div class="route-flow">🏛️ <b>Roma Termini</b> ═══[Frecciarossa 直达]═══> 🎨 <b>Firenze S. M. Novella</b></div>
+
+    <h4>🎯 选哪家？</h4>
+    <table>
+      <tr><th>公司</th><th>车型</th><th>提前买价</th><th>说明</th></tr>
+      <tr><td>🔴 <b>Trenitalia</b></td><td>Frecciarossa</td><td>€19-39</td><td>国铁旗舰，班次最多（每 30 min 一班）</td></tr>
+      <tr><td>🟣 <b>Italo</b></td><td>Italo AGV</td><td>€19-35</td><td>私营，车厢新，选座免费。<b>常做促销</b></td></tr>
+    </table>
+    <p><b>结论</b>：<a href="https://www.italotreno.it/en" target="_blank">Italo 官网</a>先看，同班次贵 3-5 €再选 <a href="https://www.trenitalia.com" target="_blank">Trenitalia</a>。</p>
+
+    <h4>📱 买票 5 步（以 Italo 为例）</h4>
+    <div class="card step">
+      <ol>
+        <li>APP 或官网 → 输入 <b>Roma Termini → Firenze S. Maria Novella</b> + 日期 08:30 附近</li>
+        <li>选 <b>Ambiente Smart</b>（2 等）就够，比 Comfort 便宜 15 €</li>
+        <li>选座：<b>Finestrino（靠窗）+ Senso di marcia（顺行方向）</b>不晕车</li>
+        <li>填乘客信息（护照号），信用卡付款</li>
+        <li><b>电子票 PDF 存手机 + 截屏备份</b>，上车查票时给列车员扫码即可</li>
+      </ol>
+    </div>
+
+    <h4>💺 车厢 & 换乘</h4>
+    <ul>
+      <li>车厢<b>头尾都有大件行李架</b>，20 寸箱子进座位下 / 头顶都行</li>
+      <li>Frecciarossa 有免费 Wi-Fi，Italo Comfort 及以上才有</li>
+      <li><b>Roma Termini 有 30+ 月台</b>，看主屏找 Binario 号，一般在 1-14 月台</li>
+      <li><b>直达无换乘</b>，睡一觉就到 —— 但设个 10:45 的闹钟别坐过</li>
+      <li>Firenze SMN 车站在老城正中心，出站步行 5 min 到 Duomo</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ========== D5 佛罗伦萨→米兰 ========== -->
+<section>
+  <h2><span class="num">iv.</span>D5 · 佛罗伦萨 → 米兰</h2>
+  <div class="leg">
+    <div class="leg-head">
+      <div>
+        <div class="leg-num">D5 · 5.16 · 11:30 - 14:00</div>
+        <div class="leg-title">Firenze SMN → Milano Centrale</div>
+        <div class="leg-meta">Frecciarossa / Italo · 2h · €19-79</div>
+      </div>
+      <span class="leg-tag">简单</span>
+    </div>
+
+    <div class="route-flow">🎨 <b>Firenze SMN</b> ═══[Frecciarossa 直达]═══> 🕌 <b>Milano Centrale</b></div>
+
+    <h4>🎯 关键信息</h4>
+    <ul>
+      <li>跟 D3 完全一样的操作，Italo / Trenitalia 二选一</li>
+      <li>Firenze SMN 车站小、月台少（1-16），找起来简单</li>
+      <li><b>Milano Centrale 车站超大，1500 米长</b>，下车后走到出口 5-8 min，别急着上地铁</li>
+      <li>米兰中央车站是老式高顶车站，出站前<b>抬头看一眼</b>，超美</li>
+    </ul>
+
+    <h4>⚠️ 米兰中央的注意点</h4>
+    <div class="card warn">
+      <p>Milano Centrale 是<b>意大利扒窃案 TOP 1</b>的地点：</p>
+      <ul>
+        <li>下车后<b>不要在月台上停留看手机</b>，跟着人流出站</li>
+        <li>大厅里"帮你叫出租车"的人 100% 是骗子，出站左转找 <b>Taxi</b> 白牌</li>
+        <li>去酒店建议直接坐 <b>M2/M3 地铁</b>（车站地下 -1F），一站两站就到</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ========== D6 米兰→格林德瓦（最难） ========== -->
+<section>
+  <h2><span class="num">v.</span>D6 · 米兰 → 格林德瓦 ⚠️</h2>
+  <div class="leg">
+    <div class="leg-head">
+      <div>
+        <div class="leg-num">D6 · 5.17 · 10:30 - 16:30 · 6h</div>
+        <div class="leg-title">Milano Centrale → Grindelwald</div>
+        <div class="leg-meta">跨国 EC + 瑞铁 IC + 山区列车 · 含 2 次换乘</div>
+      </div>
+      <span class="leg-tag hard">全程最难</span>
+    </div>
+
+    <div class="route-flow">🕌 <b>Milano Centrale</b> ═[EC 跨国]═> 🇨🇭 <b>Brig 或 Spiez</b> ═[IC]═> <b>Interlaken Ost</b> ═[BOB]═> 🏔️ <b>Grindelwald</b></div>
+
+    <h4>🎯 为什么这段最难</h4>
+    <ul>
+      <li>横跨 2 个国家、3 段火车、2 次换乘</li>
+      <li>换乘窗口最短 <b>6 min（Spiez）</b>，晚点就慌</li>
+      <li>意瑞两国铁路系统不同：意方查票严 + 瑞方 STP 直接刷</li>
+    </ul>
+
+    <h4>📱 买票策略：拆成两张票，别买联程</h4>
+    <div class="card tip">
+      <p><b>方案（推荐）</b>：分两张票买，比联程便宜 30-40%</p>
+      <ol>
+        <li><b>第 1 张：Milano Centrale → Interlaken Ost</b><br>
+          在 <a href="https://www.sbb.ch/en" target="_blank">SBB 瑞铁官网</a> 买，早鸟票（Supersaver）€30-45。<b>为什么在瑞铁买？</b>因为过境后主体是瑞铁运营，价格更透明</li>
+        <li><b>第 2 张：Interlaken Ost → Grindelwald</b><br>
+          <b>如果买了 Swiss Travel Pass</b>：这段完全免费，直接上车刷 STP。<br>
+          <b>没买 STP</b>：SBB 官网买，约 CHF 11.4，30 min 到</li>
+      </ol>
+    </div>
+
+    <h4>🚂 逐段拆解</h4>
+
+    <h4>Step 1 · Milano Centrale → Brig 或 Spiez（EC 列车，约 3h30）</h4>
+    <div class="card step">
+      <ul>
+        <li>意大利段的 EC（EuroCity）是<b>瑞铁 SBB 运营</b>，车厢更新更干净</li>
+        <li>到 <b>Milano Centrale 提前 30 min</b> 到站（月台一般是 1-6 号，最里面）</li>
+        <li><b>座位预订不是必须</b>（EC 有开放座位），但提前买时勾一下座位预订，加 CHF 5，能坐在餐车旁</li>
+        <li>过瑞士海关：<b>不下车、不检查</b>！查票时列车员顺便看一眼护照。中国护照 + 申根签直接放行</li>
+        <li>沿途风景：过 <b>Domodossola</b> 后进入辛普朗隧道（Simplon），出来就是瑞士山谷</li>
+      </ul>
+    </div>
+
+    <h4>Step 2 · Brig / Spiez 换 IC 到 Interlaken Ost（约 1h）</h4>
+    <div class="card step warn">
+      <ul>
+        <li>⚠️ <b>关键决策点</b>：EC 会经过 <b>Brig → Spiez</b>，你可以在这两站任一换车。<b>推荐在 Spiez 换</b>，因为：
+          <ul>
+            <li>Spiez 是<b>同月台换乘</b>（对面月台就是去 Interlaken 的车）</li>
+            <li>Brig 要换月台（走 3-5 min）</li>
+          </ul>
+        </li>
+        <li>Spiez 换乘 buffer 通常 <b>7-15 min</b>。上车前问下列车员："<b>Umsteigen Spiez für Interlaken?</b>"（Spiez 换车去 Interlaken 吗？）</li>
+        <li>下车后<b>在原月台不动</b>，等对面来车（IC 61 系列），车头显示 "Interlaken Ost"</li>
+        <li><b>行李下车拿好</b>：从 EC 头等车下来到 IC 有落差，滚箱轮子小心</li>
+      </ul>
+    </div>
+
+    <h4>Step 3 · Interlaken Ost → Grindelwald（BOB 齿轨小火车，30 min）</h4>
+    <div class="card step">
+      <ul>
+        <li>Interlaken Ost 是<b>山区起点站</b>，非常小，一眼看清所有月台</li>
+        <li>去 Grindelwald 的车是 <b>BOB（Berner Oberland-Bahn）</b>黄色列车</li>
+        <li>⚠️ <b>关键：这趟车会在半路"一分为二"</b>！前半段车厢去 Grindelwald，后半段去 Lauterbrunnen。<b>上车前一定看车厢外的目的地标</b>：
+          <ul>
+            <li>看到 <b>"Grindelwald"</b> 才上</li>
+            <li>看到 "Lauterbrunnen" 上错了会去瀑布镇</li>
+            <li>不确定就问司机或列车员："<b>Grindelwald?</b>" 他会指你上哪节</li>
+          </ul>
+        </li>
+        <li>持 STP <b>免费</b>，不用刷卡，直接上</li>
+        <li>座位<b>无预订</b>，随便坐；靠右侧车窗视野最好，能看到冰川雪山</li>
+      </ul>
+    </div>
+
+    <h4>🎒 6 小时行李策略</h4>
+    <div class="card tip">
+      <ul>
+        <li>在 Milano Centrale 上车时把箱子放行李架，用<b>钢丝锁栓在栏杆上</b></li>
+        <li>Spiez 换车时行李跟你走 —— 跨月台的话 1 min 内解决</li>
+        <li>BOB 山区小车行李架窄，20 寸箱子勉强，28 寸要塞在门口区域，全程注意</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ========== D7 少女峰登顶专段 ========== -->
+<section>
+  <h2><span class="num">vi.</span>D7 · 少女峰登顶（Jungfraujoch）</h2>
+  <div class="leg">
+    <div class="leg-head">
+      <div>
+        <div class="leg-num">D7 · 5.18</div>
+        <div class="leg-title">Grindelwald → Jungfraujoch 顶峰</div>
+        <div class="leg-meta">Eiger Express 大缆车 + 齿轨火车 · 1h 上山</div>
+      </div>
+      <span class="leg-tag hard">车型多易搞混</span>
+    </div>
+
+    <div class="route-flow">🏔️ <b>Grindelwald Terminal</b> ═[GB Eiger Express]═> <b>Eigergletscher</b> ═[CC 齿轨]═> ⛰️ <b>Jungfraujoch 3454m</b></div>
+
+    <h4>🎯 买票策略</h4>
+    <div class="card tip">
+      <ul>
+        <li>有 <b>Swiss Travel Pass</b> 的话，登顶段可以享<b>75 折</b>（约 <b>CHF 170/人</b>）</li>
+        <li>上山前一晚在 <a href="https://www.jungfrau.ch" target="_blank">jungfrau.ch</a> 买票 + 勾选 "<b>Seat Reservation (+CHF 10)</b>" 保证 Eiger Express 有座</li>
+        <li>无 STP：约 <b>CHF 225/人</b>，可以先买<b>瑞士半价卡（Half Fare Card）CHF 120</b>，然后再买登顶票半价，总花费差不多</li>
+      </ul>
+    </div>
+
+    <h4>🚠 三段区分（别搞混）</h4>
+    <table>
+      <tr><th>段</th><th>车型</th><th>代号</th><th>时长</th></tr>
+      <tr><td>Grindelwald 镇 → Grindelwald Terminal</td><td>市内接驳</td><td>—</td><td>步行 5 min 或短巴</td></tr>
+      <tr><td>Terminal → Eigergletscher</td><td><b>大缆车</b></td><td><b>GB</b> Eiger Express</td><td>15 min</td></tr>
+      <tr><td>Eigergletscher → Jungfraujoch</td><td><b>齿轨火车</b>（车轮下有齿条防溜坡）</td><td><b>JB / CC</b></td><td>25 min</td></tr>
+    </table>
+    <p><b>速记</b>：<code>GB 开头 = 缆车（Gondola）</code> · <code>CC / JB 开头 = 齿轨（Cog Train）</code></p>
+
+    <h4>⚠️ 决策日晨间流程</h4>
+    <div class="card warn">
+      <ol>
+        <li><b>06:30 打开手机</b>：<a href="https://www.jungfrau.ch/en-gb/live/webcams/" target="_blank">jungfrau.ch/live/webcams</a></li>
+        <li>看山顶 Webcam：<b>万里无云 → 立刻买票出发</b>；<b>有云或雾 → 改到 D8 备用日</b></li>
+        <li>07:30 从酒店去 Grindelwald Terminal（步行/短巴 5-10 min）</li>
+        <li>08:15 前赶到 Terminal，避开旅行团峰值</li>
+        <li>下山时选<b>另一条路线</b>：从 Jungfraujoch 经 Kleine Scheidegg → Lauterbrunnen 下山，看不同的风景，STP 全免</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ========== D9 瑞士→巴黎 ========== -->
+<section>
+  <h2><span class="num">vii.</span>D9 · 瑞士 → 巴黎</h2>
+  <div class="leg">
+    <div class="leg-head">
+      <div>
+        <div class="leg-num">D9 · 5.20 · 09:00 - 14:30 · 5h30</div>
+        <div class="leg-title">Grindelwald → Paris Gare de Lyon</div>
+        <div class="leg-meta">SBB IR + TGV Lyria · Basel 换车（不换站）</div>
+      </div>
+      <span class="leg-tag">中等</span>
+    </div>
+
+    <div class="route-flow">🏔️ <b>Grindelwald</b> ═[BOB]═> <b>Interlaken Ost</b> ═[IC]═> <b>Bern</b> ═[IC]═> 🇨🇭 <b>Basel SBB</b> ═[TGV Lyria]═> 🗼 <b>Paris Gare de Lyon</b></div>
+
+    <h4>🎯 买票策略：一张联程票！</h4>
+    <div class="card tip">
+      <p><b>和 D6 相反</b>：这段推荐直接在 <a href="https://www.sbb.ch/en" target="_blank">SBB 官网</a> 买联程票（Interlaken Ost → Paris Gare de Lyon），因为：</p>
+      <ul>
+        <li>TGV Lyria 是<b>强制预订座位</b>的高铁，联程票会自动帮你排换乘时刻</li>
+        <li><b>Swiss Travel Pass 折扣可用</b>：在 SBB 结算时填 Reductions → Discount cards → 添加 "Swiss Travel Pass 2nd Class"，价格立减 40-50 €</li>
+        <li>提前 2 个月买 <b>2 等座 €60-90</b>，晚了 €150+</li>
+      </ul>
+    </div>
+
+    <h4>🚂 逐段拆解</h4>
+
+    <h4>Step 1 · Grindelwald → Interlaken Ost（BOB 反向 30 min）</h4>
+    <ul>
+      <li>跟 D6 上山那段反着坐，同样注意：<b>看车厢外目的地标"Interlaken Ost"</b></li>
+      <li>持 STP 直接上，不需要刷卡</li>
+    </ul>
+
+    <h4>Step 2 · Interlaken Ost → Bern → Basel SBB（IC 直达或一次换乘，约 2h）</h4>
+    <ul>
+      <li>瑞士段火车很准点，误差 <b>±1 min</b></li>
+      <li>Bern 站可能需要换个月台（对面），标识清楚不会迷路</li>
+    </ul>
+
+    <h4>Step 3 · Basel SBB → Paris Gare de Lyon（TGV Lyria，3h）</h4>
+    <div class="card step">
+      <ul>
+        <li><b>Basel SBB 是欧洲少数"一站两国"的车站</b>：瑞士部分标 "SBB"，法国部分标 "SNCF"</li>
+        <li><b>不需要出站</b>！按月台屏找 TGV Lyria 的月台号（一般在 30 系列月台，属于法国区）</li>
+        <li>上 TGV 前<b>过一道简单的边境检查</b>：法国警察抽查护照，扫一眼放行</li>
+        <li>TGV Lyria 是<b>双层列车</b>，选 Upper Deck（上层）风景 + 安静</li>
+        <li>2 等座（Standard）有免费 Wi-Fi + 大件行李架（车厢头尾各一个）</li>
+        <li>沿途穿过法国东部葡萄园乡村，很美</li>
+        <li>到 Paris Gare de Lyon 后跟 "Sortie / Exit" 走，出站左转是地铁 M14 / M1，右转是 RER A</li>
+      </ul>
+    </div>
+
+    <div class="card warn">
+      <h4>⚠️ Basel 换车如果不是同站…</h4>
+      <p>Basel 有 3 个车站：<b>Basel SBB（瑞士）</b>、<b>Basel Bad Bf（德国）</b>、<b>Basel SNCF（法国区）</b>，实际是<b>同一个建筑</b>但要走内部通道过。<b>买票时确认是 Basel SBB</b>，别买到 Bad Bf 那个。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== D11 巴黎去机场 ========== -->
+<section>
+  <h2><span class="num">viii.</span>D11 · 巴黎 → CDG 机场</h2>
+  <div class="leg">
+    <div class="leg-head">
+      <div>
+        <div class="leg-num">D11 · 5.22 · 15:30 出发</div>
+        <div class="leg-title">Paris 市中心 → Charles de Gaulle Airport</div>
+        <div class="leg-meta">RER B 快线 or Uber · 45-70 min</div>
+      </div>
+      <span class="leg-tag">简单</span>
+    </div>
+
+    <h4>🎯 三个选项对比</h4>
+    <table>
+      <tr><th>方式</th><th>时长</th><th>价格</th><th>推荐场景</th></tr>
+      <tr><td><b>Uber</b>（首选）</td><td>45-75 min（看堵不堵）</td><td>€55-75 固定价</td><td>✅ <b>拖大箱子的最优解</b>。老佛爷购物完直接叫车</td></tr>
+      <tr><td>出租车（Taxi Parisien）</td><td>同 Uber</td><td>市中心 → CDG 白牌固定 €56/€65</td><td>找不到 Uber 时的备胎</td></tr>
+      <tr><td>RER B 快线</td><td>35 min</td><td>€11.8/人</td><td>只有 2 人 + 轻装才推荐。<b>RER 上小偷多</b></td></tr>
+    </table>
+
+    <h4>🚕 Uber 3 步法</h4>
+    <div class="card step">
+      <ol>
+        <li>在<b>老佛爷完成退税后</b>（大约 14:30-15:00）</li>
+        <li>手机 Uber APP → 目的地填 <b>"CDG Airport Terminal 2E"</b>（或你航班对应航站楼，机票上有）</li>
+        <li>选 <b>UberX</b> 或 <b>Uber Comfort</b>（含大行李箱空间），约 45-60 min 到</li>
+      </ol>
+      <p><b>省钱 tip</b>：15:30 是巴黎晚高峰边缘，能省 €10 就选 UberX；<b>行李多、赶时间选 Comfort</b>。</p>
+    </div>
+
+    <h4>✈️ 到 CDG 之后</h4>
+    <div class="card step">
+      <ol>
+        <li>司机送到出发层（Departures），找到你的航空公司柜台</li>
+        <li>先去 <b>PABLO 电子退税机</b>：机器上扫老佛爷开的退税单二维码，绿灯 = 通过</li>
+        <li>然后正常托运行李、过安检、登机</li>
+      </ol>
+      <p><b>时间预算</b>：15:30 出发 + 60 min 车程 = 16:30 到机场；退税 30 min + 安检 45 min = 17:45 到登机口。<b>建议航班在 19:00 之后起飞</b>。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 应急 ========== -->
+<section>
+  <h2><span class="num">ix.</span>应急处理</h2>
+  <div class="card warn">
+    <h4>🆘 火车晚点 / 取消</h4>
+    <ul>
+      <li><b>晚点 &lt; 30 min</b>：正常等，欧洲高铁晚点是常态</li>
+      <li><b>晚点 &gt; 60 min</b>：<b>可退全款</b>！在 APP 里申请，或车站服务台盖章</li>
+      <li><b>取消</b>：APP 里改签下一班免费，或退款；如果影响换乘，服务台可给<b>免费改签联程</b></li>
+    </ul>
+
+    <h4>🆘 上错车 / 坐过站</h4>
+    <ul>
+      <li><b>意大利</b>：查票员罚款 €50-200，态度好可能给你补票下车</li>
+      <li><b>瑞士 / 法国</b>：跟列车员说明，一般补票下车，罚款少</li>
+      <li><b>坐过站</b>：下一站下车，坐反方向车回去，票通常还有效</li>
+    </ul>
+
+    <h4>🆘 行李被偷</h4>
+    <ul>
+      <li>立刻找车站警察（Polizia / Polizei / Police）报案</li>
+      <li>拿到<b>报案单（Denuncia / Récépissé）</b>，回国报保险要用</li>
+      <li>护照丢了 → 联系<b>中国驻当地大使馆</b>（罗马、伯尔尼、巴黎都有）</li>
+    </ul>
+
+    <h4>🆘 换乘没赶上</h4>
+    <ul>
+      <li><b>不是你的锅（前程晚点导致）</b>：找服务台，免费改签下一班</li>
+      <li><b>是自己的锅</b>：APP 里买下一班票，可能要多付一点</li>
+      <li><b>如果错过跨国车（如 TGV Lyria）</b>：SBB / SNCF 联程票有<b>72h 内改签保护</b>，直接找柜台</li>
+    </ul>
+  </div>
+</section>
+
+<div class="footer-nav">
+  <nav class="nav-bar" style="justify-content:center;">
+    <a href="./index.html">🗺️ 行程主页</a>
+    <a href="./metro.html">🚇 市内交通</a>
+  </nav>
+  <p style="margin-top: 16px; font-family: var(--serif); font-style: italic;">Buon viaggio · Gute Reise · Bon voyage</p>
+</div>
+
+</body>
+</html>

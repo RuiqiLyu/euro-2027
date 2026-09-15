@@ -56,6 +56,11 @@ small { color: var(--ink-3); font-size: 12px; }
 .hero .kicker { color: var(--accent); font-family: var(--serif); font-style: italic; font-size: 15px; margin-bottom: 6px; }
 .hero .subtitle { color: var(--ink-2); margin-top: 8px; font-size: 15px; }
 .hero .flag-row { font-size: 22px; letter-spacing: 6px; margin-top: 4px; }
+.nav-bar { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+.nav-bar a { background: var(--bg-2); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font-size: 13px; text-decoration: none; color: var(--ink-2); }
+.nav-bar a.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+.nav-bar a:hover { border-color: var(--accent); color: var(--accent); }
+.nav-bar a.active:hover { color: #fff; }
 
 /* Focus card - 此刻关注 */
 .focus { background: linear-gradient(135deg, var(--accent) 0%, var(--warn) 100%); color: #fff; border-radius: var(--radius); padding: 22px 22px 20px; margin: 22px 0 18px; box-shadow: var(--card-shadow); position: relative; overflow: hidden; }
@@ -204,6 +209,11 @@ footer .sep { margin: 0 8px; opacity: .5; }
       <h1>法意瑞 12 日慢享全景</h1>
       <div class="subtitle">2027 年 5 月 12 日 → 5 月 23 日 · 意大利文艺复兴、阿尔卑斯雪山、塞纳河光影</div>
       <div class="flag-row">🇮🇹 &nbsp; 🇨🇭 &nbsp; 🇫🇷</div>
+      <nav class="nav-bar">
+        <a href="./index.html" class="active">🗺️ 行程主页</a>
+        <a href="./train.html">🚂 大交通</a>
+        <a href="./metro.html">🚇 市内交通</a>
+      </nav>
     </div>
     <button class="tz-toggle" id="tzToggle" title="切换时区显示">🕐 <span id="tzLabel">北京时间</span></button>
   </div>
