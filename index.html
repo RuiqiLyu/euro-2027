@@ -313,7 +313,7 @@ footer .sep { margin: 0 8px; opacity: .5; }
   <details class="collapsible">
     <summary>
       <h2><span class="num">iv.</span>待办清单 <span class="toggle-hint"><span class="hint-closed">点击展开 ▾</span><span class="hint-open">点击收起 ▴</span></span></h2>
-      <div class="summary-line">出发前 14 项 checklist · 办完告诉我，我改文件</div>
+      <div class="summary-line">按时间顺序 26 项 · 从 2027.2 中旬早鸟票到出发前 1 天</div>
     </summary>
     <div class="card">
       <p style="font-size:12px; color:var(--ink-3); margin-bottom:8px;">按"待办清单不做勾选"的原则，这里是纯列表。<b>办完一项告诉我，我改文件</b>，避免同行人看到的状态不一样。</p>
@@ -690,21 +690,41 @@ const bookings = [
 ];
 
 const todos = [
-  { text: '<b>2027.3 中旬</b>：SNCF Connect 抢 5.21 巴塞尔→巴黎 TGV 早鸟票', done: false },
-  { text: '<b>2027.4 上旬</b>：预约乌菲兹（5.15 上午）、学院（5.14 下午）、卢浮宫（5.21 18:30）', done: false },
-  { text: '<b>出发前 2 周</b>：国内平台或 SBB 官网买 Swiss Travel Pass 4 日连续券', done: false },
-  { text: '预约梵蒂冈博物馆（5.13 上午）', done: false },
-  { text: '预约罗马斗兽场（5.12 下午入场）', done: false },
-  { text: '预约万神殿（5.12 下午 5 € 门票，免排队）', done: false },
-  { text: '预约圣彼得大教堂（5.13 下午）或选择清晨 07:00 现场', done: false },
-  { text: '预约米兰大教堂 + 屋顶电梯票（5.16 下午）', done: false },
-  { text: '决定是否登圣母百花大教堂圆顶，若登需另约', done: false },
-  { text: '出发前一周查看瑞士徒步天气预报（Schynige Platte / First 山顶）', done: false },
-  { text: '出发前订好徒步鞋和防风外套（阿尔卑斯 5 月早晚温差大）', done: false },
-  { text: '意大利高铁：罗马→佛罗伦萨 (5.14)、佛罗伦萨→米兰 (5.16)、米兰→因特拉肯 (5.17) 提前 30 天 Italo/Trenitalia 出票', done: false },
-  { text: '下载并预置离线地图 & App：Citymapper、SBB、SNCF、Bonjour RATP、Google Maps 离线包', done: false },
-  { time: '出发前一周', text: '打印所有预订二维码 PDF，机场纸质版备份', done: false },
-  { text: '兑换少量现金：€300 + CHF 100 应急（万神殿 cash only、瑞士小费）', done: false },
+  // ═══ Tier 1 · 出发前 2-3 个月（早鸟票黄金期） ═══
+  { text: '<b>📅 2027.2 中 ~ 3 月初</b>：SNCF Connect 抢 <b>5.20 Basel → Paris</b> TGV Lyria 早鸟票（€65 → 晚了 €150+），选 2 等座 + Swiss Travel Pass 折扣', done: false },
+  { text: '<b>📅 2027.3 月初</b>：SBB 官网买 <b>5.17 Milano → Interlaken Ost</b> 跨国 EC 早鸟票（CHF 30 → 晚了 CHF 80）', done: false },
+
+  // ═══ Tier 2 · 出发前 1 个月（意大利高铁 + 全部景点） ═══
+  { text: '<b>📅 2027.4 月初</b>：Italo/Trenitalia 抢 <b>5.14 Roma → Firenze</b> 早鸟票（€19-39）', done: false },
+  { text: '<b>📅 2027.4 月初</b>：Italo/Trenitalia 抢 <b>5.16 Firenze → Milano</b> 早鸟票（€19-39）', done: false },
+  { text: '<b>📅 2027.4 月初</b>：预约 <b>5.12 下午</b> 罗马斗兽场 · 分时段票秒空', done: false },
+  { text: '<b>📅 2027.4 月初</b>：预约 <b>5.12 下午</b> 万神殿（5 € 门票，免排队）', done: false },
+  { text: '<b>📅 2027.4 月初</b>：预约 <b>5.13 上午</b> 梵蒂冈博物馆 + 西斯廷（推荐团队讲解票，可直通圣彼得）', done: false },
+  { text: '<b>📅 2027.4 月初</b>：预约 <b>5.13 下午</b> 圣彼得大教堂（或选清晨 07:00 现场，几乎不排队）', done: false },
+  { text: '<b>📅 2027.4 月初</b>：预约 <b>5.14 下午</b> 学院美术馆（大卫像原作）', done: false },
+  { text: '<b>📅 2027.4 月初</b>：决定是否登圣母百花大教堂圆顶，若登需 <b>5.14</b> 单独约（现场无票）', done: false },
+  { text: '<b>📅 2027.4 月初</b>：预约 <b>5.15 上午 08:30</b> 乌菲兹美术馆（早场分时段每 15 min 一场，抢不到 08:30 选 09:00/09:15）', done: false },
+  { text: '<b>📅 2027.4 月初</b>：预约 <b>5.16 下午</b> 米兰大教堂 + 屋顶电梯票', done: false },
+  { text: '<b>📅 2027.4 月初</b>：预约 <b>5.21 周五 19:00</b> 卢浮宫夜场（延长至 21:45）', done: false },
+
+  // ═══ Tier 3 · 出发前 2 周 ═══
+  { text: '<b>📅 出发前 2 周（2027.4 下）</b>：飞猪 / 携程 / SBB 官网买 <b>Swiss Travel Pass 4 日连续券</b>（CHF 244/人）', done: false },
+  { text: '<b>📅 出发前 2 周</b>：办境外流量卡 / eSIM（Airalo / 3HK）· 覆盖意瑞法 3 国', done: false },
+  { text: '<b>📅 出发前 2 周</b>：购置徒步鞋 + 防风冲锋衣（D7 瑞士徒步用，阿尔卑斯 5 月早晚温差大）', done: false },
+  { text: '<b>📅 出发前 2 周</b>：办境外旅行保险（含医疗）', done: false },
+
+  // ═══ Tier 4 · 出发前 1 周 ═══
+  { text: '<b>📅 出发前 1 周（2027.5 上）</b>：下载所有 App 并注册：Citymapper / SBB Mobile / SNCF Connect / Italo / Bonjour RATP / Uber / Swiss Mobility', done: false },
+  { text: '<b>📅 出发前 1 周</b>：手机 NFC 支付确认（Apple Pay / Google Pay），罗马 / 米兰 / 巴黎地铁都靠这个', done: false },
+  { text: '<b>📅 出发前 1 周</b>：打印所有预订二维码 PDF，机场纸质版备份', done: false },
+  { text: '<b>📅 出发前 1 周</b>：兑换现金 <b>€300 + CHF 100</b> 应急（万神殿 cash only、瑞士小费）', done: false },
+  { text: '<b>📅 出发前 1 周</b>：Swiss Mobility APP 保存 D7 徒步路线（First → Bachalpsee · Männlichen → Kleine Scheidegg）离线包', done: false },
+
+  // ═══ Tier 5 · 出发前 1-2 天 & 到达激活 ═══
+  { text: '<b>📅 出发前 1-2 天</b>：Google Maps 离线包下载：罗马 / 佛罗伦萨 / 米兰 / 因特拉肯 / 巴黎 5 城', done: false },
+  { text: '<b>📅 出发前 1-2 天</b>：核对护照有效期 &gt; 6 个月 · 检查申根签证页 · 打印回程机票行程单', done: false },
+  { text: '<b>📅 5.17 抵瑞士当天</b>：SBB Mobile APP 激活 Swiss Travel Pass（激活当天算第 1 日，覆盖 D6-D9）', done: false },
+  { text: '<b>📅 5.17-19 每天晨看</b>：瑞士徒步天气 · Schynige Platte / First 山顶实况 Webcam', done: false },
 ];
 
 const packingList = [
