@@ -240,7 +240,6 @@ footer .sep { margin: 0 8px; opacity: .5; }
     <ul>
       <li><b>圣母百花大教堂登顶</b>：Brunelleschi 圆顶必须提前网上预约（现场无票），若打算登顶请纳入待办清单</li>
       <li><b>5.22 机场时间</b>：15:30 出发去 CDG + 提前 4h = 航班约 19:30 起飞，请核对已出票的回程航班</li>
-      <li><b>少女峰晴天备用日</b>：5.19 是备用天，建议 5.18 早晨若见 Webcam 明显有云，立刻改到 5.19 上山</li>
     </ul>
   </div>
 </section>
@@ -306,9 +305,9 @@ footer .sep { margin: 0 8px; opacity: .5; }
       <circle cx="315" cy="200" r="4" fill="#fff"/>
       <text x="220" y="200" font-family="Georgia, serif" font-size="15" fill="#2a6b5c" font-weight="600" text-anchor="end">Grindelwald</text>
       <text x="220" y="215" font-family="serif" font-size="11" fill="#8b857e" text-anchor="end">D6-9 · 5.17-20</text>
-      <!-- 少女峰标记 -->
-      <text x="315" y="170" font-family="serif" font-size="18" text-anchor="middle">🏔️</text>
-      <text x="315" y="185" font-family="serif" font-size="10" fill="#2a6b5c" text-anchor="middle" font-style="italic">Jungfraujoch</text>
+      <!-- 徒步区标记 -->
+      <text x="315" y="170" font-family="serif" font-size="18" text-anchor="middle">🥾</text>
+      <text x="315" y="185" font-family="serif" font-size="10" fill="#2a6b5c" text-anchor="middle" font-style="italic">First · Männlichen</text>
 
       <!-- Paris -->
       <circle cx="180" cy="185" r="9" fill="#395486"/>
@@ -324,7 +323,7 @@ footer .sep { margin: 0 8px; opacity: .5; }
     <div class="map-legend">
       <span><span class="dot" style="background:#c8583a"></span>意大利段（罗马 · 佛罗伦萨）</span>
       <span><span class="dot" style="background:#b78e3c"></span>米兰过境</span>
-      <span><span class="dot" style="background:#2a6b5c"></span>瑞士段（少女峰）</span>
+      <span><span class="dot" style="background:#2a6b5c"></span>瑞士段（阿尔卑斯徒步）</span>
       <span><span class="dot" style="background:#395486"></span>法国段（巴黎）</span>
     </div>
   </div>
@@ -399,7 +398,7 @@ footer .sep { margin: 0 8px; opacity: .5; }
     <span class="chip"><b>Trenitalia</b> · 意大利火车</span>
     <span class="chip"><b>Bonjour RATP</b> · 巴黎地铁 + Navigo</span>
     <span class="chip"><b>Uber</b> · 罗马 / 巴黎打车</span>
-    <span class="chip"><b>Jungfrau</b> · 少女峰实况</span>
+    <span class="chip"><b>Swiss Mobility</b> · 官方徒步路线导航</span>
     <span class="chip"><b>Duolingo</b> · 应急意语 / 法语</span>
     <span class="chip"><b>XE Currency</b> · 汇率</span>
   </div>
@@ -513,26 +512,31 @@ const days = [
   },
   {
     n: 7, date: '2027-05-18', weekday: '周二', tzCity: 'Grindelwald (UTC+2)',
-    title: '瑞士格林德瓦', theme: '阿尔卑斯山巅 · 少女峰',
-    stay: '同上', transport: 'Eiger Express 大缆车 + 齿轨火车（全程持 STP 打 75 折）',
-    routeDay: ['Grindelwald Terminal', 'Eigergletscher', 'Jungfraujoch (Top of Europe)'],
+    title: '瑞士格林德瓦', theme: '阿尔卑斯山巅 · First + Männlichen 徒步',
+    stay: '同上', transport: 'First 缆车 + Männlichen 缆车 + 山间徒步（全程 STP 免费）',
+    routeDay: ['First, Grindelwald', 'Bachalpsee', 'Männlichen', 'Kleine Scheidegg'],
     events: [
-      { time: '06:30 – 07:30', type: 'booking', title: '晨起看 Webcam · 决定是否上山', tag: '关键决策', desc: '打开 <a href="https://www.jungfrau.ch/en-gb/live/webcams/" target="_blank">jungfrau.ch/live/webcams</a>，山顶晴朗才出发；有云直接改到 5.19 备用日。' },
-      { time: '08:30 – 10:00', type: 'transit', title: 'Grindelwald Terminal → Eigergletscher', place: 'Grindelwald Terminal', desc: '搭 Eiger Express 大缆车（15 min，比从因特拉肯出发省 1 h）。' },
-      { time: '10:00 – 11:00', type: 'transit', title: 'Eigergletscher → Jungfraujoch', desc: '换齿轨火车（25 min）。<em>跟着红色火车地标走</em>；GB 开头是缆车，CC 开头是齿轨。' },
-      { time: '11:00 – 14:30', type: 'attraction', title: '少女峰顶 · 阿莱奇冰川 · 僧侣峰小屋', place: 'Jungfraujoch, Switzerland', desc: '欧洲之巅 3,454 m。若体力允许可徒步至<em>僧侣峰小屋</em>。' },
-      { time: '15:00 – 18:00', type: 'rest', title: '下山散步 · 瀑布镇 (Lauterbrunnen)', place: 'Lauterbrunnen', desc: '顺平缓小径漫步，绿草木屋如明信片。' },
+      { time: '07:30 – 08:30', type: 'rest', title: '木屋早餐 · 打包午餐', desc: 'Grindelwald 车站旁 Coop 打包三明治、瑞士巧克力、水；山上餐厅贵得离谱（CHF 30/份）。' },
+      { time: '08:45 – 09:15', type: 'transit', title: 'Grindelwald 镇 → First 缆车站', place: 'Firstbahn Grindelwald', desc: '步行 15 min 或短巴，<em>持 STP 免费</em>。' },
+      { time: '09:15 – 09:45', type: 'attraction', title: 'First 缆车上山', desc: 'STP 免费。20 min 上到 2168 m 山顶，山顶有 First Cliff Walk 悬崖观景台，可拍照。' },
+      { time: '10:00 – 12:30', type: 'attraction', title: 'First → Bachalpsee 高山湖徒步', place: 'Bachalpsee', tag: '⭐经典', desc: '<em>2.8 km 平缓徒步 55 min</em>到镜面高山湖。湖里能看见<em>艾格峰、僧侣峰、少女峰三大主峰倒影</em> —— 这视角比登顶少女峰更美。湖畔野餐吃刚才打包的午餐。' },
+      { time: '12:30 – 13:30', type: 'transit', title: '徒步返回 First 缆车 → 下山', desc: '原路 2.8 km 走回 First 缆车站，坐缆车下山（STP 免费）。' },
+      { time: '14:00 – 14:30', type: 'transit', title: 'Grindelwald → Männlichen 缆车', place: 'Männlichen', desc: 'Grindelwald Grund 站坐 <em>Männlichen Gondelbahn</em>（世界最长缆车之一）30 min 上山，STP 免费。' },
+      { time: '14:30 – 16:30', type: 'attraction', title: 'Männlichen → Kleine Scheidegg 山脊漫步', place: 'Kleine Scheidegg', tag: '⭐经典', desc: '<em>4.6 km 平缓山脊路 1.5h</em>，全程<em>俯瞰劳特布龙嫩山谷 + 三大主峰正面</em>。老人小孩都能走。到 Kleine Scheidegg 后有齿轨列车下山。' },
+      { time: '16:30 – 17:30', type: 'transit', title: 'Kleine Scheidegg → Grindelwald 齿轨下山', desc: 'STP 免费。' },
+      { time: '18:00 – 20:00', type: 'food', title: '晚餐 · 芝士火锅 (Fondue)', desc: '瑞士国民美食，浸法棍搭白葡萄酒，累了一天最治愈。' },
     ],
   },
   {
     n: 8, date: '2027-05-19', weekday: '周三', tzCity: 'Grindelwald (UTC+2)',
-    title: '瑞士格林德瓦', theme: '蒂芙尼蓝湖泊 · 备用日',
-    stay: '同上', transport: '瑞铁 SBB + 湖泊游船（持 STP 全免或折扣）',
-    routeDay: ['Interlaken', 'Brienz', 'Grindelwald'],
+    title: '瑞士格林德瓦', theme: 'Schynige Platte 高原 或 布里恩茨湖',
+    stay: '同上', transport: '瑞铁 SBB + 齿轨 / 湖船（持 STP 全免）',
+    routeDay: ['Wilderswil', 'Schynige Platte', 'Grindelwald'],
     events: [
-      { time: '06:30 – 07:30', type: 'booking', title: '⚠️ 决策日 · 看 Webcam 确定今天走哪套方案', tag: '关键决策', desc: '打开 <a href="https://www.jungfrau.ch/en-gb/live/webcams/" target="_blank">jungfrau.ch/live/webcams</a>：<em>若 5.18 已上过山</em> → 走「方案 A · 湖泊小镇」；<em>若 5.18 因大雾未上山且今天晴朗</em> → 立刻走「方案 B · 补登少女峰」。' },
-      { time: '方案 A · 已登过山', type: 'attraction', title: '布里恩茨湖游船 + 龙疆小镇', place: 'Brienzersee, Switzerland', desc: '09:30-12:00 蒂芙尼蓝湖上复古游船 → 12:00-15:00 格林德瓦 / 龙疆 (Iseltwald) 小镇漫步。想更刺激可去 First 山飞索。' },
-      { time: '方案 B · 补登少女峰', type: 'attraction', title: '格林德瓦 → Eiger Express → Jungfraujoch', desc: '08:30 立刻出发按 D7 同套路线上山（Grindelwald Terminal → Eigergletscher → 齿轨 → 山顶）。湖泊游船顺延到 5.20 早上，但会挤掉 D9 巴黎入城的部分时段。' },
+      { time: '07:00 – 08:00', type: 'rest', title: '☀️/🌧️ 看天气选方案', tag: '看天气', desc: '<em>晴天</em> → 走「方案 A · Schynige Platte 高原」；<em>雨天</em> → 走「方案 B · 湖泊小镇日」。' },
+      { time: '方案 A · 晴天', type: 'attraction', title: 'Schynige Platte 高原 + 高山植物园', place: 'Schynige Platte', desc: '<em>第 3 大经典徒步</em>。09:00 从 Wilderswil 坐百年古董齿轨（40 min）上山，到 <em>Schynige Platte 高原</em>看阿尔卑斯高山植物园 + 环形徒步 2h（俯瞰因特拉肯双湖）。STP 免费。下午回 Grindelwald 泡温泉。' },
+      { time: '方案 B · 雨天', type: 'attraction', title: '布里恩茨湖游船 + 龙疆小镇', place: 'Brienzersee, Switzerland', desc: '09:30 从 Interlaken Ost 港口坐<em>复古蒸汽游船</em>（STP 免费）游"蒂芙尼蓝"布里恩茨湖，中途在 <em>Iseltwald（韩剧《爱的迫降》拍摄地）</em>下船漫步。回程去 Interlaken 逛精品店 / 博物馆。' },
+      { time: '18:00 – 20:00', type: 'food', title: '晚餐 · Rösti (瑞士煎土豆饼)', desc: '瑞士版 Hash Brown 配奶酪培根，配一杯 Rivella 完美收尾。' },
     ],
   },
   {
@@ -592,8 +596,8 @@ const bookings = [
   { name: '学院美术馆', when: '提前 1 个月', hint: '大卫像原作', url: 'https://webshop.b-ticket.com/' },
   { name: '圣母百花大教堂', when: '提前 1 个月', hint: '登顶必约；进堂内不能背双肩包', url: 'https://www.museumflorence.com/' },
   { name: '米兰大教堂', when: '提前订电梯票', hint: '直接上屋顶森林', url: 'https://ticket.duomomilano.it' },
-  { name: '少女峰', when: '看天气再买', hint: '半价卡 + 好天气才出手', url: 'https://www.jungfrau.ch' },
-  { name: '少女峰实况 Webcam', when: '出发前一晚 & 当天晨看', hint: '天气决策', url: 'https://www.jungfrau.ch/en-gb/live/webcams/#webcam-jungfraujoch-top-of-europe' },
+  { name: 'Swiss Travel Pass 4 日', when: '出发前 2 周', hint: '国内平台 / SBB 官网买，D6 到瑞士当天激活', url: 'https://www.sbb.ch/en/tickets-offers/tickets/swiss-travel-pass.html' },
+  { name: '瑞士徒步天气实况', when: '每日晨看', hint: 'Schynige Platte 与 First 山顶实况', url: 'https://www.jungfrau.ch/en-gb/live/webcams/' },
   { name: '卢浮宫（周五夜场）', when: '提前 1 个月', hint: '18:30 入场', url: 'https://ticket.louvre.fr/nocturne-gratuite' },
   { name: '塞纳河游船', when: '现场 / 飞猪', hint: 'Bateaux Mouches 品牌', url: 'https://www.bateaux-mouches.fr/' },
   { name: 'SNCF Connect（法国 TGV）', when: '2027.3 中旬（提前 2 个月）', hint: '巴塞尔 → 巴黎 早鸟最便宜', url: 'https://www.sncf-connect.com/' },
@@ -605,15 +609,15 @@ const bookings = [
 const todos = [
   { text: '<b>2027.3 中旬</b>：SNCF Connect 抢 5.21 巴塞尔→巴黎 TGV 早鸟票', done: false },
   { text: '<b>2027.4 上旬</b>：预约乌菲兹（5.15 上午）、学院（5.14 下午）、卢浮宫（5.21 18:30）', done: false },
-  { text: '<b>出发前 2 周</b>：国内平台买 Swiss Travel Pass 4 日连续券', done: false },
+  { text: '<b>出发前 2 周</b>：国内平台或 SBB 官网买 Swiss Travel Pass 4 日连续券', done: false },
   { text: '预约梵蒂冈博物馆（5.13 上午）', done: false },
   { text: '预约罗马斗兽场（5.12 下午入场）', done: false },
   { text: '预约万神殿（5.12 下午 5 € 门票，免排队）', done: false },
   { text: '预约圣彼得大教堂（5.13 下午）或选择清晨 07:00 现场', done: false },
   { text: '预约米兰大教堂 + 屋顶电梯票（5.16 下午）', done: false },
   { text: '决定是否登圣母百花大教堂圆顶，若登需另约', done: false },
-  { text: '出发前一晚 & 5.18 晨查看 <a href="https://www.jungfrau.ch/en-gb/live/webcams/" target="_blank">少女峰 Webcam</a> 决定登山日', done: false },
-  { text: '若天气晴：出发前买 Eiger Express + 齿轨座位预订（+10 CHF/人）', done: false },
+  { text: '出发前一周查看瑞士徒步天气预报（Schynige Platte / First 山顶）', done: false },
+  { text: '出发前订好徒步鞋和防风外套（阿尔卑斯 5 月早晚温差大）', done: false },
   { text: '意大利高铁：罗马→佛罗伦萨 (5.14)、佛罗伦萨→米兰 (5.16)、米兰→因特拉肯 (5.17) 提前 30 天 Italo/Trenitalia 出票', done: false },
   { text: '下载并预置离线地图 & App：Citymapper、SBB、SNCF、Bonjour RATP、Google Maps 离线包', done: false },
   { time: '出发前一周', text: '打印所有预订二维码 PDF，机场纸质版备份', done: false },
@@ -650,7 +654,7 @@ const packingList = [
   },
   {
     icon: '👕', name: '衣物', items: [
-      { text: '轻薄冲锋衣 / 防风外套', note: '少女峰必带' },
+      { text: '轻薄冲锋衣 / 防风外套', note: '瑞士徒步必带' },
       { text: '薄毛衣 / 抓绒 x 2', note: '早晚温差大' },
       { text: '长袖 T 恤 x 4' },
       { text: '短袖 T 恤 x 3' },
@@ -686,12 +690,13 @@ const packingList = [
     ]
   },
   {
-    icon: '🏔️', name: '少女峰特别装备', items: [
-      { text: '厚外套 / 羽绒服（山顶 -5℃）' },
-      { text: '手套 + 帽子 + 围巾' },
-      { text: '高倍防晒霜 + 墨镜', note: '雪地紫外线 x 3' },
-      { text: '暖宝宝 x 4' },
-      { text: '保温水杯', note: '山顶热饮很贵' },
+    icon: '🥾', name: '瑞士徒步装备', items: [
+      { text: '防水徒步鞋', note: '别穿运动鞋，山路湿滑' },
+      { text: '轻便双肩包 20-30L', note: '装打包午餐 + 水 + 冲锋衣' },
+      { text: '登山杖（可选）', note: 'First-Bachalpsee 用得上' },
+      { text: '手套 + 帽子（早晨薄款）' },
+      { text: '高倍防晒霜 + 墨镜', note: '高海拔紫外线强' },
+      { text: '保温水杯 750ml', note: '山上水贵' },
     ]
   },
   {
@@ -717,8 +722,8 @@ const tips = [
   { title: '佛罗伦萨 · 85 欧三日通票', body: '如果计划连打多个馆，考虑佛罗伦萨 85 € 三日通票，含乌菲兹+学院+皮蒂宫+波波利花园。' },
   { title: '梵蒂冈 · 讲解团票', body: '买个团队讲解票可以从博物馆<b>直接不排队去圣彼得</b>，半天逛完。或只看教堂内部就直接去博物馆排队。' },
   { title: 'B 站预习', body: '乌菲兹推荐两个视频：① 顾爷 AAAAA 博物馆系列（20 min，出发前看）；② P3 一个多小时精讲（进馆边看边找）。' },
-  { title: '少女峰 · Live Webcam', body: '登山前一晚傍晚或当天清晨立刻打开 <a href="https://www.jungfrau.ch/en-gb/live/webcams/" target="_blank">Live Webcam</a>，山顶万里无云再买票。' },
-  { title: '瑞士通票 STP 折扣', body: 'Interlaken Ost → Grindelwald 火车全免；Grindelwald 往山顶那段齿轨/大缆车持 STP 打 <b>75 折</b>，折后约 170 CHF。' },
+  { title: '瑞士徒步 · 三大经典路线', body: 'D7 <b>First → Bachalpsee</b>（55 min 到镜面高山湖，看三主峰倒影）+ <b>Männlichen → Kleine Scheidegg</b>（1.5h 平缓山脊）；D8 备选 <b>Schynige Platte</b>（百年古董齿轨 + 高山植物园）。全部 STP 免费。' },
+  { title: '瑞士通票 STP · 4 日全免', body: '4 日连续券（2 等座）约 <b>CHF 244/人</b>。覆盖：全部火车、邮政巴士、湖船、市内公交、First/Männlichen/Schynige Platte 缆车齿轨。<em>激活当天开始算 4 天</em>，D6 到达当天激活，D9 出瑞士 12:00 前也算在内。' },
   { title: '瑞士 → 巴黎买票', body: '直接在 SBB 官网买到 Paris Gare de Lyon 的车票。填 Reductions 页面时点你的名字 → Discount cards → 添加 "Swiss Travel Pass 2nd Class"。' },
   { title: '巴黎地铁 · Navigo', body: '手机下 <b>Bonjour RATP</b> App，直接充值 Navigo 电子票，NFC 手机就是地铁票。' },
   { title: '巴黎退税', body: '老佛爷百货内自助机打退税单 → CDG 机场 PABLO 机器扫码 → 托运。<b>务必留出 30 min 排 PABLO</b>。' },
