@@ -210,6 +210,18 @@ small { color: var(--ink-3); font-size: 12px; }
 footer { margin-top: 60px; text-align: center; color: var(--ink-3); font-size: 12px; font-family: var(--serif); font-style: italic; }
 footer .sep { margin: 0 8px; opacity: .5; }
 
+/* Collapsible sections */
+.collapsible { border: none; }
+.collapsible > summary { cursor: pointer; list-style: none; -webkit-tap-highlight-color: transparent; margin-bottom: 8px; }
+.collapsible > summary::-webkit-details-marker { display: none; }
+.collapsible > summary > h2 { display: flex; align-items: baseline; gap: 10px; transition: color .15s ease; }
+.collapsible > summary:hover > h2 { color: var(--accent); }
+.collapsible > summary:hover > h2 .num { color: var(--accent-2); }
+.toggle-hint { font-family: var(--sans); font-size: 12px; font-weight: 400; color: var(--ink-3); font-style: normal; letter-spacing: 1px; margin-left: auto; }
+.hint-open { display: none; }
+.collapsible[open] .hint-closed { display: none; }
+.collapsible[open] .hint-open { display: inline; color: var(--accent); }
+
 /* Utility */
 .row { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
 .tz-toggle { background: var(--bg-2); border: 1px solid var(--line); border-radius: 8px; padding: 4px 10px; font-size: 12px; color: var(--ink-2); cursor: pointer; font-family: var(--sans); }
@@ -371,37 +383,41 @@ footer .sep { margin: 0 8px; opacity: .5; }
 
 <!-- ========== 行李打包清单 ========== -->
 <section>
-  <h2><span class="num">vi.</span>行李打包清单</h2>
-  <div class="card">
-    <p style="font-size:12px; color:var(--ink-3); margin-bottom:14px;">
-      上半部分是<b>官方基础清单</b>（所有人看到一样）；下半部分"我的添加"是<b>只保存在你这台手机 / 浏览器里</b>的，勾选状态和自定义项目不会同步给同行人。
-    </p>
+  <details class="collapsible">
+    <summary><h2><span class="num">vi.</span>行李打包清单 <span class="toggle-hint"><span class="hint-closed">点击展开 ▾</span><span class="hint-open">点击收起 ▴</span></span></h2></summary>
+    <div class="card">
+      <p style="font-size:12px; color:var(--ink-3); margin-bottom:14px;">
+        上半部分是<b>官方基础清单</b>（所有人看到一样）；下半部分"我的添加"是<b>只保存在你这台手机 / 浏览器里</b>的，勾选状态和自定义项目不会同步给同行人。
+      </p>
 
-    <!-- 官方分类清单 -->
-    <div id="packingCategories"></div>
+      <!-- 官方分类清单 -->
+      <div id="packingCategories"></div>
 
-    <!-- 我的添加 -->
-    <div class="my-pack">
-      <div class="my-pack-head">
-        <div>
-          <div class="my-pack-title">📝 我的添加</div>
-          <div class="my-pack-sub">仅本机保存 · 换手机 / 清缓存会丢</div>
+      <!-- 我的添加 -->
+      <div class="my-pack">
+        <div class="my-pack-head">
+          <div>
+            <div class="my-pack-title">📝 我的添加</div>
+            <div class="my-pack-sub">仅本机保存 · 换手机 / 清缓存会丢</div>
+          </div>
+          <button class="btn-clear" id="clearMine" title="清空我的添加">清空</button>
         </div>
-        <button class="btn-clear" id="clearMine" title="清空我的添加">清空</button>
+        <ul id="myPackList" class="pack-list"></ul>
+        <form class="add-row" id="addForm">
+          <input type="text" id="addInput" placeholder="加个东西... 例：转换插头 x2" autocomplete="off" maxlength="60" />
+          <button type="submit">＋ 添加</button>
+        </form>
       </div>
-      <ul id="myPackList" class="pack-list"></ul>
-      <form class="add-row" id="addForm">
-        <input type="text" id="addInput" placeholder="加个东西... 例：转换插头 x2" autocomplete="off" maxlength="60" />
-        <button type="submit">＋ 添加</button>
-      </form>
     </div>
-  </div>
+  </details>
 </section>
 
 <!-- ========== 实用贴士 ========== -->
 <section>
-  <h2><span class="num">vii.</span>实用贴士</h2>
-  <div class="tips" id="tipsGrid"></div>
+  <details class="collapsible">
+    <summary><h2><span class="num">vii.</span>实用贴士 <span class="toggle-hint"><span class="hint-closed">点击展开 ▾</span><span class="hint-open">点击收起 ▴</span></span></h2></summary>
+    <div class="tips" id="tipsGrid"></div>
+  </details>
 </section>
 
 <!-- ========== 必备 APP ========== -->
